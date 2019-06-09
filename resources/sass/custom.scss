@@ -1,0 +1,136 @@
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/buttons";
+
+.input-file::-webkit-file-upload-button {
+    @extend .btn
+}
+
+@each $color, $value in $theme-colors {
+    .input-file-#{$color}::-webkit-file-upload-button {
+        @include button-variant($value, $value);
+    }
+}
+
+.input-file.is-invalid {
+    @extend .input-file-danger;
+
+    ~ .invalid-feedback {
+        display: block;
+    }
+}
+
+.focus-none:focus {
+    outline: unset;
+}
+
+.custom-file.mt-3, .custom-file.mt-md-3 {
+    .custom-file-input, .custom-file-label {
+        margin-top: 1rem !important;
+    }
+}
+
+.accordion {
+    .more {
+        position: relative;
+
+        &:after {
+            content: "Hide";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        &.collapsed {
+            &:after {
+                content: "More";
+            }
+        }
+    }
+}
+
+.toggle {
+    position: relative;
+
+    &:after {
+        content: " \21F5";
+        font-size: 1.2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+    }
+}
+
+.more-less {
+    position: relative;
+
+    &:after {
+        content: " \25B3";
+        font-size: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &.collapsed {
+        &:after {
+            content: " \25BD";
+        }
+    }
+}
+
+.show-hide {
+    position: relative;
+
+    &:after {
+        content: " \21F5";
+        font-size: 1.2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &.collapsed {
+        &:after {
+            //content: "Show";
+        }
+    }
+}
+
+.form-group-mb-0 .form-group {
+    margin-bottom: 0 !important;
+}
+
+.row.form-group-mx-px-0 {
+    .row {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+
+        .col-7 input {
+            //overflow: hidden;
+            //text-overflow: ellipsis;
+            //white-space: nowrap;
+        }
+    }
+}
+
+.word-wrap {
+    word-break: break-all;
+}
+
+.edit.position-absolute {
+    align-self: flex-end;
+    margin-top: -8px;
+    right: 24px;
+}
