@@ -32,7 +32,7 @@ class PersonalDetailValidate extends FormRequest
             'name' => "required|regex:/^[.\'\-a-zA-Z ]+$/|max:150",
             'email' => 'required|email|unique:personal_details',
             'mobile' => ['required', new PhoneNumber],
-            'dob' => 'required|date|date_format:d/m/Y|before: -16 years',
+            'dob' => 'required|date|before: -16 years',
             'blood_group' => ['required', new EnumValue(BloodGroupType::class)],
             'religion' => ['required', new EnumValue(ReligionType::class)],
             'caste' => "required|regex:/^[.\'\-a-zA-Z ]+$/",
@@ -42,10 +42,20 @@ class PersonalDetailValidate extends FormRequest
             'education' => 'required|string',
             'nrs' => 'required|string',
             'image' => 'required|image|max:2000',
-            'regd_no' => 'required|string',
+
+            'regd_no' => 'required|string|unique:personal_details',
             'id_card_no' => 'required|string',
             'rank' => 'required|string',
-            'doe' => 'required|date|date_format:d/m/Y',
+            'doe' => 'required|date',
+
+            'nok_name' => "required|regex:/^[.\'\-a-zA-Z ]+$/|max:150",
+            'nok_relation' => "required|string|max:150",
+            'nok_mobile' => ['nullable', new PhoneNumber],
+
+            'state' => 'required|string|max:50',
+            'district' => 'required|string|max:50',
+            'pin_code' => 'required|numeric|digits:6',
+            'address' => 'required|string|max:300',
 
         ];
     }
@@ -55,7 +65,7 @@ class PersonalDetailValidate extends FormRequest
         return [
             'name.regex' => "The name contains ony alphabet.",
             'caste.regex' => "The :attribute may contains ony alphabet.",
-            'dob.before' => "The age must be min of 16 year old."
+            'dob.before' => "The age must be minimum of 16 years old."
         ];
     }
 

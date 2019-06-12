@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAwardsTable extends Migration
+class CreateAddressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +13,14 @@ class CreateAwardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('awards', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('personal_detail_id');
 
-            $table->string('title');
+            $table->string('state');
+            $table->string('district')->nullable();
+            $table->string('pin_code')->nullable();
+            $table->text('address')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
@@ -30,6 +34,6 @@ class CreateAwardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('awards');
+        Schema::dropIfExists('addresses');
     }
 }

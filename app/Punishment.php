@@ -20,4 +20,39 @@ class Punishment extends Model
         'by_whom',
         'remark'
     ];
+
+    /**
+     * @param $value
+     */
+    public function setOffenceDateAttribute($value)
+    {
+        $this->attributes['offence_date'] = date('Y-m-d', strtotime($value));
+    }
+
+    /**
+     * @param $value
+     * @return false|string
+     */
+    public function getOffenceDateAttribute($value)
+    {
+        return date('d-m-Y', strtotime($value));
+    }
+
+    /**
+     * @param $value
+     */
+    public function setOrderDateAttribute($value)
+    {
+        $this->attributes['order_date'] = date('Y-m-d', strtotime($value));
+    }
+
+    /**
+     * @param $value
+     * @return false|string
+     */
+    public function getOrderDateAttribute($value)
+    {
+        return date('d-m-Y', strtotime($value));
+    }
+
 }

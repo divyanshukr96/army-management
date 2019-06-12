@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -15,6 +14,14 @@ class CreateLeavesTable extends Migration
     {
         Schema::create('leaves', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('personal_detail_id');
+
+            $table->date('from');
+            $table->date('to')->nullable();
+            $table->integer('days')->nullable();
+            $table->string('type');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

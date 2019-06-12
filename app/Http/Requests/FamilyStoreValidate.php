@@ -36,8 +36,8 @@ class FamilyStoreValidate extends FormRequest
             'blood_group' => ['required', new EnumValue(BloodGroupType::class)],
             'relation' => ['required', new EnumValue(RelationType::class)],
 
-            'dob' => 'nullable|required_if:relation,' . RelationType::Children . '|date|date_format:d/m/Y',
-            'dom' => 'nullable|required_if:relation,' . RelationType::Wife . '|date|date_format:d/m/Y',
+            'dob' => 'nullable|required_if:relation,' . RelationType::Children . '|date|before_or_equal:today',
+            'dom' => 'nullable|required_if:relation,' . RelationType::Wife . '|date',
             'pan_card' => 'nullable|required_if:relation,' . RelationType::Wife . '|alpha_num',
             'certificate' => 'nullable|required_if:relation,' . RelationType::Wife . ',' . RelationType::Children . '|image|max:2000',
         ];

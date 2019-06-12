@@ -3,6 +3,7 @@
 
 use App\Enums\BloodGroupType as Blood;
 use App\Enums\DocumentType as Document;
+use App\Enums\LeaveType as Leave;
 
 return [
     Blood::class => [
@@ -21,5 +22,11 @@ return [
         Document::Pan => "Pan Card",
         Document::Driving => "Driving Licence",
         Document::Passport => "Passport",
+    ],
+
+    Leave::class => [
+        Leave::AL => 'Annual Leave',
+        Leave::CL => 'Casual Leave',
+        Leave::SL => 'Sick Leave',
     ],
 ];

@@ -21,7 +21,7 @@ class CreatePunishmentsTable extends Migration
             $table->string('rank')->nullable();
             $table->text('offence')->nullable();
             $table->string('witness')->nullable();
-            $table->string('punishment')->nullable();
+            $table->text('punishment')->nullable();
             $table->date('order_date')->nullable();
             $table->string('by_whom')->nullable();
             $table->text('remark')->nullable();

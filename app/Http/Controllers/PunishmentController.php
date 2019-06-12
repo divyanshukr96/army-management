@@ -40,6 +40,7 @@ class PunishmentController extends Controller
     {
         $army = PersonalDetail::find(session('army'));
         $army->punishment()->save(new Punishment($request->all()));
+        if (request()->has('redirect')) return redirect(request()->redirect);
         return redirect()->back();
     }
 

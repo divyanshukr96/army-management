@@ -41,7 +41,14 @@ Route::resource('users', 'UserController');
 //});
 
 Route::prefix('army/new')->group(function () {
-    Route::get('/{page}', 'FamilyController@index1')->name('add.detail');
+    Route::get('add-family', 'FamilyController@index')->name('family.create');
+
+    Route::get('{army}/family', 'NewArmyAddController@family')->name('add.family');
+    Route::get('{army}/family/create', 'NewArmyAddController@familyCreate')->name('add.family.create');
+    Route::get('{army}/document', 'NewArmyAddController@document')->name('add.document');
+    Route::get('{army}/professional', 'NewArmyAddController@professional')->name('add.professional');
+    Route::get('{army}/professional/course', 'NewArmyAddController@professionalCourse')->name('add.professional.course');
+    Route::get('{army}/professional/punishment', 'NewArmyAddController@professionalPunishment')->name('add.professional.punishment');
 
     Route::get('add-family', 'FamilyController@index')->name('family.create');
     Route::post('add-family', 'FamilyController@store')->name('family.store');
@@ -53,6 +60,8 @@ Route::prefix('army/new')->group(function () {
     Route::post('add-course', 'CourseController@store')->name('course.store');
     Route::post('add-punishment', 'PunishmentController@store')->name('punishment.store');
     Route::post('add-sarpanch', 'SarpanchController@store')->name('sarpanch.store');
+    Route::post('add-award', 'AwardController@store')->name('award.store');
+    Route::post('add-leave', 'LeaveController@store')->name('leave.store');
 });
 
 Route::resource('army', 'PersonalDetailController');

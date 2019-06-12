@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
 use App\Enums\BloodGroupType;
 use App\Enums\MaritalStatusType;
 use App\Enums\ReligionType;
 use App\Http\Requests\PersonalDetailValidate;
+use App\NOKDetails;
 use App\PersonalDetail;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -47,7 +49,13 @@ class PersonalDetailController extends Controller
     {
         $army = PersonalDetail::create($request->all());
         session(['army' => $army->id]);
-        return redirect()->route('family.create');
+        $army->nok()->save(new NOKDetails([
+            'name' => $request->input('nok_name'),
+            'relation' => $request->input('nok_relation'),
+            'mobile' => $request->input('nok_mobile'),
+        ]));
+        $army->address()->save(new Address($request->all()));
+        return redirect()->route('add.family', $army->id);
     }
 
     /**

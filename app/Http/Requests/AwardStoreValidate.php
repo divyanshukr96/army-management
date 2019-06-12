@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CourseStoreValidate extends FormRequest
+class AwardStoreValidate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,14 @@ class CourseStoreValidate extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'grade' => 'required|string',
-            'date' => 'required|date|before_or_equal:today',
-            'loc' => 'required|string'
+            'title' => 'required|string'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'award & honour title'
         ];
     }
 }

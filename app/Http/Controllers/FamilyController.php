@@ -18,27 +18,20 @@ class FamilyController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param $page
      * @return Response
      */
-    public function index1()
+    public function index1($page)
     {
+        if (!view()->exists('add.' . $page)) return redirect()->back();  // Error if view file not exists
         $options = [
-            'marital_status' => MaritalStatusType::toSelectArray(),
+//            'marital_status' => MaritalStatusType::toSelectArray(),
             'blood_group' => BloodGroupType::toSelectArray(),
-            'religion' => ReligionType::toSelectArray(),
+//            'religion' => ReligionType::toSelectArray(),
             'relation' => RelationType::toSelectArray(),
             'document' => DocumentType::toSelectArray(),
         ];
-//        session(['army' => '3c5ef973-cb76-4bd1-8765-9ac8f4d30322']);
-//        session(['army' => 'cbfb7df0-41a6-42db-90bd-7589e78dcd6e']); //first
-        $army = PersonalDetail::find(session('army'));
-        $family = (object)[
-            'father' => $army->family()->whereRelation(RelationType::Father)->get(),
-            'mother' => $army->family()->whereRelation(RelationType::Mother)->get(),
-            'children' => $army->family()->whereRelation(RelationType::Children)->get(),
-            'wife' => $army->family()->whereRelation(RelationType::Wife)->get(),
-        ];
-        return view('family-details.view', compact('options', 'army', 'family'));
+        return view('add.' . $page, compact('options', 'army', 'family'));
     }
 
     /**
@@ -55,6 +48,7 @@ class FamilyController extends Controller
             'relation' => RelationType::toSelectArray(),
             'document' => DocumentType::toSelectArray(),
         ];
+        session(['army' => 'f850b1d6-2d12-4c2d-ab00-5f6ca4126e39']); //new
 //        session(['army' => '3c5ef973-cb76-4bd1-8765-9ac8f4d30322']);
 //        session(['army' => 'cbfb7df0-41a6-42db-90bd-7589e78dcd6e']); //first
         $army = PersonalDetail::find(session('army'));
@@ -97,7 +91,8 @@ class FamilyController extends Controller
         if (RelationType::Wife === $request->get('relation')) $data = $request->all();
         if (RelationType::Children === $request->get('relation')) $data = $request->except(['dom', 'pan_card']);
         $army->family()->save(new Family($data));
-        return redirect()->back()->withInput();
+        if (request()->has('redirect')) return redirect(request()->redirect);
+        return redirect()->back();
     }
 
     /**

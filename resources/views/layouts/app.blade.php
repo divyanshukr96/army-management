@@ -101,12 +101,12 @@
          */
 
         [role="main"] {
-            padding-top: 133px; /* Space for fixed navbar */
+            padding-top: 55px; /* Space for fixed navbar */
         }
 
         @media (min-width: 768px) {
             [role="main"] {
-                padding-top: 48px; /* Space for fixed navbar */
+                padding-top: 50px; /* Space for fixed navbar */
             }
         }
 

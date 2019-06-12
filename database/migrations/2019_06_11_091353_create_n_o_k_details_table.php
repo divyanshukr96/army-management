@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAwardsTable extends Migration
+class CreateNOKDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,13 @@ class CreateAwardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('awards', function (Blueprint $table) {
+        Schema::create('n_o_k_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('personal_detail_id');
 
-            $table->string('title');
+            $table->uuid('personal_detail_id');
+            $table->string('name');
+            $table->string('relation')->nullable();
+            $table->string('mobile')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
@@ -30,6 +32,6 @@ class CreateAwardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('awards');
+        Schema::dropIfExists('n_o_k_details');
     }
 }

@@ -97,6 +97,37 @@ class PersonalDetail extends Model
         return $this->hasOne(Sarpanch::class);
     }
 
+    /**
+     * @return HasMany
+     */
+    public function nok()
+    {
+        return $this->hasMany(NOKDetails::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function awards()
+    {
+        return $this->hasMany(Award::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function leaves()
+    {
+        return $this->hasMany(Leave::class);
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
 
     /**
      * @param $value

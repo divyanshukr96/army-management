@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Award;
+use App\Http\Requests\AwardStoreValidate;
+use App\PersonalDetail;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AwardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -20,7 +23,7 @@ class AwardController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -30,19 +33,21 @@ class AwardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param AwardStoreValidate $request
+     * @return Response
      */
-    public function store(Request $request)
+    public function store(AwardStoreValidate $request)
     {
-        //
+        $army = PersonalDetail::find(session('army'));
+        $army->awards()->save(new Award($request->all()));
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Award  $award
-     * @return \Illuminate\Http\Response
+     * @param Award $award
+     * @return Response
      */
     public function show(Award $award)
     {
@@ -52,8 +57,8 @@ class AwardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Award  $award
-     * @return \Illuminate\Http\Response
+     * @param Award $award
+     * @return Response
      */
     public function edit(Award $award)
     {
@@ -63,9 +68,9 @@ class AwardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Award  $award
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Award $award
+     * @return Response
      */
     public function update(Request $request, Award $award)
     {
@@ -75,8 +80,8 @@ class AwardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Award  $award
-     * @return \Illuminate\Http\Response
+     * @param Award $award
+     * @return Response
      */
     public function destroy(Award $award)
     {

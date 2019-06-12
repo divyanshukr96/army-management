@@ -40,6 +40,7 @@ class CourseController extends Controller
     {
         $army = PersonalDetail::find(session('army'));
         $army->course()->save(new Course($request->all()));
+        if (request()->has('redirect')) return redirect(request()->redirect);
         return redirect()->back();
     }
 

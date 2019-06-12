@@ -3,10 +3,10 @@
 namespace App;
 
 use App\Traits\UsesUuid;
+use Hash;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+//use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {

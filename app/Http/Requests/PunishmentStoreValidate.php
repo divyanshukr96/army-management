@@ -25,12 +25,12 @@ class PunishmentStoreValidate extends FormRequest
     {
         return [
             'place' => 'required|string|',
-            'offence_date' => 'required|string|date|',
+            'offence_date' => 'required|date|before_or_equal:today|before_or_equal:order_date',
             'rank' => 'required|string|max:150',
             'offence' => 'required|string|',
             'witness' => 'required|string|',
             'punishment' => 'required|string|',
-            'order_date' => 'required|string|date|',
+            'order_date' => 'required|date|after_or_equal:offence_date|before_or_equal:today',
             'by_whom' => 'required|string|',
             'remark' => 'nullable|string|'
         ];

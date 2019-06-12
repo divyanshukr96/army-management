@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LeaveStoreValidate;
-use App\Leave;
-use App\PersonalDetail;
-use Carbon\Carbon;
+use App\Address;
 use Illuminate\Http\Request;
 
-class LeaveController extends Controller
+class AddressController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,25 +30,21 @@ class LeaveController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param LeaveStoreValidate $request
-     * @return void
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(LeaveStoreValidate $request)
+    public function store(Request $request)
     {
-        $army = PersonalDetail::find(session('army'));
-
-        $diff = (Carbon::parse($request->from)->diffInDays(Carbon::parse($request->to)));
-        $army->leaves()->save(new Leave($request->all()));
-        return redirect()->back()->withInput();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Leave  $leave
+     * @param  \App\Address  $address
      * @return \Illuminate\Http\Response
      */
-    public function show(Leave $leave)
+    public function show(Address $address)
     {
         //
     }
@@ -59,10 +52,10 @@ class LeaveController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Leave  $leave
+     * @param  \App\Address  $address
      * @return \Illuminate\Http\Response
      */
-    public function edit(Leave $leave)
+    public function edit(Address $address)
     {
         //
     }
@@ -71,10 +64,10 @@ class LeaveController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Leave  $leave
+     * @param  \App\Address  $address
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Leave $leave)
+    public function update(Request $request, Address $address)
     {
         //
     }
@@ -82,10 +75,10 @@ class LeaveController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Leave  $leave
+     * @param  \App\Address  $address
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Leave $leave)
+    public function destroy(Address $address)
     {
         //
     }
