@@ -12,13 +12,18 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
-Auth::routes(['register' => false]);
+//dd(file_exists(storage_path('installed')));
 
-Route::get('/home', 'HomeController@index')->name('home');
+try {
+    $register = !\App\User::count();
+} catch (Exception $e) {
+    $register = true;
+}
+Auth::routes(['register' => $register]);
+
+Route::get('/home', 'HomeController@home')->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('users', 'UserController');

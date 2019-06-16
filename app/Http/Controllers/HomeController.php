@@ -6,7 +6,9 @@ use App\Army;
 use App\Audit;
 use App\Leave;
 use App\Punishment;
+use App\User;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
@@ -19,7 +21,22 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('index');
+    }
+
+
+    public function index()
+    {
+//        if (!User::count()) return view('instruction');
+
+        try {
+            User::count();
+        } catch (Exception $e) {
+            if (file_exists(storage_path('installed'))) unlink(storage_path('installed'));
+            return view('instruction');
+        }
+
+        return view('welcome');
     }
 
     /**
@@ -27,7 +44,7 @@ class HomeController extends Controller
      *
      * @return Renderable
      */
-    public function index()
+    public function home()
     {
         $punishment = (object)[
             'data' => Punishment::latest()->take(10)->get(),

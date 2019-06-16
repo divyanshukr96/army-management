@@ -12,6 +12,10 @@ use OwenIt\Auditing\Contracts\Auditable;
 use Spatie\Permission\Traits\HasRoles;
 use Str;
 
+/**
+ * @method static count()
+ * @method static create(array $array)
+ */
 class User extends Authenticatable implements Auditable
 {
     use UsesUuid, Notifiable, HasRoles, \OwenIt\Auditing\Auditable, SoftDeletes;
