@@ -1,7 +1,15 @@
 <h3 class="font-weight-bold">{{$army->name}} ({{$army->rank}})</h3>
 <div class="card my-2 font-weight-bold">
     <div class="card-body py-1 form-group-mb-0">
+        <div class="float-right">
+            <a href="{{ asset("image/{$army->image}") }}" target="_blank">
+                <img height="100" width="85"
+                     src="{{ asset("image/{$army->image}") }}"
+                     alt="">
+            </a>
+        </div>
         <div class="row form-group-mx-px-0 mb-2">
+
             <div class="col-md-6 form-group row">
                 <label for="regd_no" class="col-5 col-sm-4 col-form-label">Registration No.</label>
                 <div class="col-7 col-sm-8">

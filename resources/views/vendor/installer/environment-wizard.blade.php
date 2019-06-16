@@ -77,11 +77,11 @@
                         {{ trans('installer_messages.environment.wizard.form.app_debug_label') }}
                     </label>
                     <label for="app_debug_true">
-                        <input type="radio" name="app_debug" id="app_debug_true" value=true checked />
+                        <input type="radio" name="app_debug" id="app_debug_true" value="1" checked />
                         {{ trans('installer_messages.environment.wizard.form.app_debug_label_true') }}
                     </label>
                     <label for="app_debug_false">
-                        <input type="radio" name="app_debug" id="app_debug_false" value=false />
+                        <input type="radio" name="app_debug" id="app_debug_false" value="0" />
                         {{ trans('installer_messages.environment.wizard.form.app_debug_label_false') }}
                     </label>
                     @if ($errors->has('app_debug'))

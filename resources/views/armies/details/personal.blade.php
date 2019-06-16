@@ -145,8 +145,10 @@
 
     <div class="card mb-2">
         <div class="card-header py-2">
-            <a href="{{ route('sarpanch.edit', [$army->id, $army->sarpanch->id, 'redirect' => url()->full()]) }}"
-               class="btn btn-info btn-sm float-right px-3">Edit</a>
+            @if($army->sarpanch)
+                <a href="{{ route('sarpanch.edit', [$army->id, $army->sarpanch->id, 'redirect' => url()->full()]) }}"
+                   class="btn btn-info btn-sm float-right px-3">Edit</a>
+            @endif
             <h5 class="mb-0 font-weight-bold">Sarpanch Details</h5>
         </div>
         <div class="card-body pb-0 pt-1">

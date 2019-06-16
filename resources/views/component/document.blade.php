@@ -14,7 +14,7 @@
                         <div class="col-12 col-sm-8 pt-2">
                             <span class="pr-3">Card No. </span>: {{$doc->document_no}}</div>
                         <div class="col-12 col-sm-4 pt-1 text-truncate">
-                            <a href="{{$doc->image}}">View Image</a>
+                            <a href="{{ asset("image/{$doc->image}") }}">View Image</a>
 {{--                            <a href="{{ '' }}" class="btn btn-sm btn-info mx-2">Edit</a>--}}
 
                             {{ Form::open(['method' => 'DELETE', 'route' => ['documents.destroy', $army->id, $doc->id], 'class' => 'd-inline']) }}

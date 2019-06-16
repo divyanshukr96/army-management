@@ -32,80 +32,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df095708-9c70-44b0-97b2-26b65ef4ca10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/DIVYANSHU.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Army Management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Army Management.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Award.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Award.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/CSDCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CSDCard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Document.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Document.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Family.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Family.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AddressController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AwardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AwardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CSDCardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CSDCardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FamilyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FamilyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InsuranceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InsuranceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LeaveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LeaveController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PersonalDetailController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfessionalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfessionalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PunishmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PunishmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SarpanchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SarpanchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AccountStoreValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AccountStoreValidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/DocumentStoreValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/DocumentStoreValidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/FamilyStoreValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/FamilyStoreValidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/LeaveStoreValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/LeaveStoreValidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/PersonalDetailValidate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Insurance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Insurance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Leave.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Leave.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/NOKDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/NOKDetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PersonalDetail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Punishment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Punishment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Rules/NoOfLeave.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rules/NoOfLeave.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Sarpanch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Sarpanch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_29_181419_create_personal_details_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_29_181829_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_29_181829_create_documents_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_29_182158_create_insurances_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_29_182158_create_insurances_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_29_190642_create_families_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_29_190642_create_families_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_07_165718_create_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_07_165718_create_accounts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_07_165801_create_c_s_d_cards_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_07_165801_create_c_s_d_cards_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_07_165922_create_courses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_07_165922_create_courses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_07_170024_create_leaves_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_07_170024_create_leaves_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_07_170039_create_punishments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_07_170039_create_punishments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_07_170053_create_awards_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_07_170053_create_awards_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_09_065149_create_sarpanches_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_09_065149_create_sarpanches_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_11_091353_create_n_o_k_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_11_091353_create_n_o_k_details_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_12_184527_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_12_184527_create_addresses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/custom.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/add/document.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/add/document.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/add/family.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/add/family.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/add/include/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/add/include/details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/add/newcourse.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/add/newcourse.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/add/professional.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/add/professional.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/family-details/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/family-details/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/family-details/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/family-details/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/family-details/family-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/family-details/family-details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/add-permission.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/create.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/StoreImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/StoreImage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/installer.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/installer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/installer_messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/installer_messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/armies/details/navigator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/armies/details/navigator.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/armies/details/personal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/armies/details/personal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/installer/environment-wizard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/installer/environment-wizard.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +84,44 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Traits/StoreImage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/armies/details/personal.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/details.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="39" lean-forward="true" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/armies/details/navigator.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="4" column="72" selection-start-line="4" selection-start-column="72" selection-end-line="4" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -161,13 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$cards</find>
-      <find>sarpa</find>
-      <find>document</find>
-      <find>punishment</find>
-      <find>from</find>
-      <find>DD/MM/YYYY</find>
-      <find>dob</find>
       <find>fam</find>
       <find>button type=&quot;button&quot;</find>
       <find>button</find>
@@ -191,6 +155,13 @@
       <find>date</find>
       <find>{{</find>
       <find>}}</find>
+      <find>laravel</find>
+      <find>larav</find>
+      <find>app_de</find>
+      <find>environmentWizard</find>
+      <find>debug</find>
+      <find>environ</find>
+      <find>wizard</find>
     </findStrings>
     <replaceStrings>
       <replace>$data</replace>
@@ -218,16 +189,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" />
-        <option value="$PROJECT_DIR$/resources/views/armies/pending.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FamilyController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SarpanchController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CSDCardController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/InsuranceController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AwardController.php" />
         <option value="$PROJECT_DIR$/resources/views/professionals/create.blade.php" />
@@ -242,7 +203,6 @@
         <option value="$PROJECT_DIR$/resources/views/armies/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/component/punishment.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/armies/details/leaves.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/armies/details/personal.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Account.php" />
@@ -269,6 +229,17 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/roles/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/lang/en/installer_messages.php" />
+        <option value="$PROJECT_DIR$/resources/views/vendor/installer/welcome.blade.php" />
+        <option value="$PROJECT_DIR$/vendor/rachidlaasri/laravel-installer/src/Controllers/RequirementsController.php" />
+        <option value="$PROJECT_DIR$/vendor/rachidlaasri/laravel-installer/src/Routes/web.php" />
+        <option value="$PROJECT_DIR$/config/installer.php" />
+        <option value="$PROJECT_DIR$/resources/views/vendor/installer/environment-wizard.blade.php" />
+        <option value="$PROJECT_DIR$/vendor/rachidlaasri/laravel-installer/src/Controllers/EnvironmentController.php" />
+        <option value="$PROJECT_DIR$/app/Traits/StoreImage.php" />
+        <option value="$PROJECT_DIR$/resources/views/armies/details/personal.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/details.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/armies/details/navigator.blade.php" />
       </list>
     </option>
   </component>
@@ -381,13 +352,68 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="Army Management" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="E:\Army Management" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="Army Management" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="E:\Army Management" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="Army Management" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="E:\Army Management" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Army Management" type="b2602c69:ProjectViewProjectNode" />
               <item name="Army Management" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Army Management" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Army Management" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Army Management" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Army Management" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Army Management" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Army Management" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Army Management" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Army Management" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="armies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Army Management" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Army Management" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="armies" type="462c0819:PsiDirectoryNode" />
+              <item name="details" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -401,7 +427,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/documents" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/storage/app/public" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -413,11 +439,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Army Management\storage\app\public" />
       <recent name="E:\Army Management\resources\views\documents" />
       <recent name="E:\Army Management\resources\views\users" />
       <recent name="E:\Army Management\app\Traits" />
       <recent name="E:\Army Management\resources\views\add" />
-      <recent name="E:\Army Management\resources\views\personal-details" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Army Management\resources\views\professionals" />
@@ -468,20 +494,22 @@
       <workItem from="1560362855167" duration="7896000" />
       <workItem from="1560404312575" duration="61016000" />
       <workItem from="1560523656060" duration="14024000" />
-      <workItem from="1560547056622" duration="45559000" />
+      <workItem from="1560547056622" duration="54164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304926000" />
+    <option name="totallyTimeSpent" value="313531000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21375267" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.33333334" />
@@ -493,7 +521,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946696" weight="0.32998884" />
       <window_info anchor="bottom" id="Database Changes" order="9" sideWeight="0.49946696" weight="0.32998884" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.32998884" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946696" visible="true" weight="0.32998884" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946696" weight="0.2831661" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32998884" />
       <window_info anchor="bottom" id="TeamCity" order="13" sideWeight="0.49946696" weight="0.32998884" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -506,99 +534,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/punishments/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="24" column="24" lean-forward="true" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="69" column="41" lean-forward="true" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Paid/Capital Finance/backend/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_07_170024_create_leaves_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/leaves/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="39" column="82" selection-start-line="39" selection-start-column="82" selection-end-line="39" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeaveController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#53#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_14_061905_create_armies_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="28" column="38" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ArmyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="42" column="56" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
-          <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/armies/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="50" column="62" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/component/punishment.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="53" column="56" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#3151#0#Blade" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/armies/details/punishments.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/armies/details/leaves.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
@@ -606,24 +541,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/armies/details/personal.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-628">
-          <caret line="99" column="14" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -843,13 +764,6 @@
     <entry file="file://$PROJECT_DIR$/resources/views/roles/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/installer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1704">
-          <caret line="71" column="68" lean-forward="true" selection-start-line="71" selection-start-column="68" selection-end-line="71" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/roles/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -865,31 +779,137 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/ar/installer_messages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="64" column="43" lean-forward="true" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/vendor/installer/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        <state relative-caret-position="-792">
+          <caret line="30" column="51" lean-forward="true" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/cache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/cache/packages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/vendor/installer/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="11" lean-forward="true" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        <state relative-caret-position="240">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/rachidlaasri/laravel-installer/src/Controllers/RequirementsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/rachidlaasri/laravel-installer/src/Helpers/EnvironmentManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="43" column="32" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/rachidlaasri/laravel-installer/src/Routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="15" column="58" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/vendor/installer/environment-wizard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="86" column="51" lean-forward="true" selection-start-line="86" selection-start-column="51" selection-end-line="86" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/rachidlaasri/laravel-installer/src/Controllers/EnvironmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="94" column="34" lean-forward="true" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/en/installer_messages.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3564">
-          <caret line="81" column="30" lean-forward="true" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+        <state relative-caret-position="286">
+          <caret line="73" column="30" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/ar/installer_messages.php">
+    <entry file="file://$PROJECT_DIR$/config/installer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="64" column="43" lean-forward="true" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
+        <state relative-caret-position="-938">
+          <caret line="67" column="60" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Traits/StoreImage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/armies/details/personal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/details.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="39" lean-forward="true" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/armies/details/navigator.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="72" selection-start-line="4" selection-start-column="72" selection-end-line="4" selection-end-column="72" />
         </state>
       </provider>
     </entry>

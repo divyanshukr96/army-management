@@ -57,13 +57,13 @@
                     </tr>
                     <tr>
                         <td>Marriage Certificate</td>
-                        <td>{{ $family->certificate }}</td>
+                        <td><a target="_blank" href="{{ asset("image/{$family->certificate}") }}">View Certificate</a></td>
                     </tr>
                     @break
                     @case('Children')
                     <tr>
                         <td>Birth Certificate</td>
-                        <td>{{ $family->certificate }}</td>
+                        <td><a target="_blank" href="{{ asset("image/{$family->certificate}") }}">View Certificate</a></td>
                     </tr>
                     @break
                     @default

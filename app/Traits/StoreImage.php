@@ -46,8 +46,10 @@ trait StoreImage
         $file_slug = Str::slug(basename($file->getClientOriginalName(), '.' . $extension));
         $file_name = time() . '__' . Str::limit($file_slug, '50', '') . '.' . $extension;
         if ($store) {
-            $storage = storage_path('app/images/' . date('Y') . '/' . date('m'));
+            $date = date('Y') . '/' . date('m');
+            $storage = storage_path('app/public/' . $date);
             $file->move($storage, $file_name);
+            $file_name = "{$date}/{$file_name}";
         }
         return $file_name;
     }
