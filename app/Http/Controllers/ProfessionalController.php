@@ -2,25 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Army;
 use App\Professional;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProfessionalController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('newArmy')->only(['index', 'store']);
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Army $army
+     * @return Response
      */
-    public function index()
+    public function index(Army $army)
     {
-        //
+        return view('professionals.create', compact('army'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -30,21 +39,26 @@ class ProfessionalController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Army $army)
     {
-        //
+        $this->validate($request, [
+            'complete' => 'required|accepted'
+        ]);
+        $army->registered = $request->get('complete');
+        $army->save();
+        return redirect()->back()->with('flash_message', 'New Army Details successfully added.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Professional  $professional
-     * @return \Illuminate\Http\Response
+     * @param Professional $professional
+     * @return Response
      */
-    public function show(Professional $professional)
+    public function show()
     {
         //
     }
@@ -52,10 +66,10 @@ class ProfessionalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Professional  $professional
-     * @return \Illuminate\Http\Response
+     * @param Professional $professional
+     * @return Response
      */
-    public function edit(Professional $professional)
+    public function edit()
     {
         //
     }
@@ -63,11 +77,11 @@ class ProfessionalController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Professional  $professional
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Professional $professional
+     * @return Response
      */
-    public function update(Request $request, Professional $professional)
+    public function update()
     {
         //
     }
@@ -75,10 +89,10 @@ class ProfessionalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Professional  $professional
-     * @return \Illuminate\Http\Response
+     * @param Professional $professional
+     * @return Response
      */
-    public function destroy(Professional $professional)
+    public function destroy()
     {
         //
     }

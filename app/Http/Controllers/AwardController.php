@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Army;
 use App\Award;
 use App\Http\Requests\AwardStoreValidate;
-use App\PersonalDetail;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class AwardController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:army-add|army-edit'])->only(['store', 'edit', 'update']);
+        $this->middleware(['permission:army-delete'])->only(['destroy']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,11 +41,11 @@ class AwardController extends Controller
      * Store a newly created resource in storage.
      *
      * @param AwardStoreValidate $request
+     * @param Army $army
      * @return Response
      */
-    public function store(AwardStoreValidate $request)
+    public function store(AwardStoreValidate $request, Army $army)
     {
-        $army = PersonalDetail::find(session('army'));
         $army->awards()->save(new Award($request->all()));
         return redirect()->back();
     }

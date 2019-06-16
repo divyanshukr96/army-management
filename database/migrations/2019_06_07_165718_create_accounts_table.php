@@ -13,8 +13,8 @@ class CreateAccountsTable extends Migration
     public function up()
     {
         Schema::create('accounts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->uuid('personal_detail_id');
+            $table->uuid('id')->primary();
+            $table->uuid('army_id');
 
             $table->string('account_no');
             $table->string('branch_name')->nullable();

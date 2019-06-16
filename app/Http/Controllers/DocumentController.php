@@ -2,51 +2,64 @@
 
 namespace App\Http\Controllers;
 
+use App\Army;
+use App\Course;
 use App\Document;
 use App\Http\Requests\DocumentStoreValidate;
-use App\PersonalDetail;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class DocumentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('newArmy')->only(['index']);
+        $this->middleware('permission:army-add|army-edit')->only(['store', 'edit', 'update']);
+        $this->middleware('permission:army-delete')->only('destroy');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Army $army
+     * @return Response
      */
-    public function index()
+    public function index(Army $army)
     {
-        //
+        return view('documents.create', compact('army'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Army $army
+     * @return Response
      */
-    public function create()
+    public function create(Army $army)
     {
-        //
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param DocumentStoreValidate $request
+     * @param Army $army
      * @return void
      */
-    public function store(DocumentStoreValidate $request)
+    public function store(DocumentStoreValidate $request, Army $army)
     {
-        $army = PersonalDetail::find(session('army'));
-        $army->document()->save(new Document($request->all()));
+        $army->documents()->save(new Document($request->all()));
         return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Course $course
-     * @return \Illuminate\Http\Response
+     * @param Course $course
+     * @return Response
      */
     public function show(Document $document)
     {
@@ -56,8 +69,8 @@ class DocumentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Course $course
-     * @return \Illuminate\Http\Response
+     * @param Course $course
+     * @return Response
      */
     public function edit(Document $document)
     {
@@ -67,9 +80,9 @@ class DocumentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Course $course
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Course $course
+     * @return Response
      */
     public function update(Request $request, Document $document)
     {
@@ -79,11 +92,15 @@ class DocumentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Course $course
-     * @return \Illuminate\Http\Response
+     * @param Army $army
+     * @param Document $document
+     * @return void
      */
-    public function destroy(Document $document)
+    public function destroy(Army $army, Document $document)
     {
-        //
+        $document->delete();
+
+        return redirect()->back()
+            ->with('flash_message', 'Document successfully deleted.');
     }
 }

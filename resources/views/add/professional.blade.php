@@ -1,5 +1,8 @@
 @php
-    $leavesGroup = $army->leaves()->get()->groupBy('type.value')
+    $leavesGroup = $army->leaves()->get()->groupBy('type.value');
+    $options = [
+    'leaveType' => \App\Enums\LeaveType::toSelectArray()
+    ];
 @endphp
 @extends('layouts.app')
 @section('content')
@@ -39,39 +42,7 @@
                     </div>
                     <hr style="margin: 1.1rem -1.2rem .5rem; border-top-width: 2px">
                 @endif
-                {{ Form::open(['route' => 'leave.store', 'novalidate']) }}
-                <div class="form-row">
-                    <div class="col-md-3 mb-2">
-                        {!! Form::label('from', 'Leave From') !!}
-                        {!! Form::date('from',null,[
-                        'class' => 'form-control ' . ($errors->has('from') ? 'is-invalid' : ''),
-                        'required'
-                        ]) !!}
-                        <div class="invalid-feedback">{{ $errors->first('from') }}</div>
-                    </div>
-                    <div class="col-md-3 mb-2">
-                        {!! Form::label('to', 'Leave To') !!}
-                        {!! Form::date('to',null,[
-                        'class' => 'form-control ' . ($errors->has('to') ? 'is-invalid' : ''),
-                        'required'
-                        ]) !!}
-                        <div class="invalid-feedback">{{ $errors->first('to') }}</div>
-                    </div>
-                    <div class="col-md-3 mb-2">
-                        {!! Form::label('type', 'Leave Type') !!}
-                        {!! Form::select('type', $options['leaveType'],
-                        null,[
-                        'class' => 'form-control ' . ($errors->has('type') ? 'is-invalid' : ''),
-                        'placeholder' => 'Select Leave Type',
-                        'required'
-                        ]) !!}
-                        <div class="invalid-feedback">{{ $errors->first('type') }}</div>
-                    </div>
-                    <div class="col-md-2 mb-2 text-right align-self-en pt-md-4">
-                        {{ Form::submit('Add', ['class' => 'btn btn-primary mt-md-1']) }}
-                    </div>
-                </div>
-                {{ Form::close() }}
+                @include('forms.new.leave')
             </div>
         </div>
 
@@ -97,7 +68,7 @@
                 @endif
                 <div class="text-right pt-1 mb-2">
                     <a class="btn btn-primary btn-sm"
-                       href="{{route('add.professional.course',[session('army'),'redirect'=> route('add.professional',session('army'))]) }}"
+                       href="{{route('course.create',[$army->id,'redirect'=> url()->full()]) }}"
                        role="button">Add Course Details</a>
                 </div>
             </div>
@@ -118,22 +89,7 @@
                     </div>
                     <hr style="margin: 1.1rem -1.2rem .5rem; border-top-width: 2px">
                 @endif
-                {{ Form::open(['route' => 'award.store', 'novalidate']) }}
-                <div class="form-row">
-                    <div class="col-md-6 mb-2">
-                        {!! Form::label('title', 'Award & Honour Title') !!}
-                        {!! Form::text('title',null,[
-                        'class' => 'form-control ' . ($errors->has('title') ? 'is-invalid' : ''),
-                        'placeholder' => 'Enter Award & Honour Title',
-                        'required'
-                        ]) !!}
-                        <div class="invalid-feedback">{{ $errors->first('title') }}</div>
-                    </div>
-                    <div class="col-md-2 mb-2 text-right align-self-en pt-md-4">
-                        {{ Form::submit('Add', ['class' => 'btn btn-primary mt-md-1']) }}
-                    </div>
-                </div>
-                {{ Form::close() }}
+                @include('forms.new.award')
             </div>
         </div>
 
@@ -182,15 +138,14 @@
         @endif
         <div class="text-right pt-1 mb-2">
             <a class="btn btn-primary btn-sm"
-               href="{{route('add.professional.punishment',[session('army'),'redirect'=> route('add.professional',session('army'))])}}"
+               href="{{route('punishment.create',[$army->id,'redirect'=> url()->full()])}}"
                role="button">Add Punishment Awarded</a>
         </div>
 
 
-        <div class="d-flex justify-content-between">
-            <a href="{{ route('add.document',session('army')) }}" class="btn btn-secondary">Back</a>
+        <div class="d-flex justify-content-between mt-5">
+            <a href="{{ route('add.document',$army->id) }}" class="btn btn-secondary">Back</a>
             <a href="{{ route('add.professional',session('army')) }}" class="btn btn-success"> Have to setup</a>
-            {{--            <a href="{{ route('add.professional',session('army')) }}" class="btn btn-success">Proceed Next</a>--}}
         </div>
 
 

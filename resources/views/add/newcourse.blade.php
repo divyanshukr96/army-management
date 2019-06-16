@@ -3,7 +3,7 @@
     <div class="container px-0">
 
         @if(request()->has('redirect'))
-            {{ Form::open(['route' => ['course.store','redirect='.request()->redirect], 'novalidate']) }}
+            {{ Form::open(['route' => ['course.store',$army->id,'redirect='.request()->redirect], 'novalidate']) }}
         @else
             {{ Form::open(['route' => 'course.store', 'novalidate']) }}
         @endif

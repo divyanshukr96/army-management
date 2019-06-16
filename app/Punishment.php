@@ -4,10 +4,16 @@ namespace App;
 
 use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Punishment extends Model
+/**
+ * @method static whereDate(string $string, \Carbon\CarbonInterface|static $today)
+ */
+class Punishment extends Model implements Auditable
 {
-    use UsesUuid;
+    use UsesUuid, SoftDeletes, \OwenIt\Auditing\Auditable;
 
     protected $fillable = [
         'place',
@@ -20,6 +26,14 @@ class Punishment extends Model
         'by_whom',
         'remark'
     ];
+
+    /**
+     * @return BelongsTo
+     */
+    public function army()
+    {
+        return $this->belongsTo(Army::class);
+    }
 
     /**
      * @param $value

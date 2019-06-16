@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Army;
 use App\Enums\BloodGroupType;
 use App\Enums\DocumentType;
 use App\Enums\MaritalStatusType;
@@ -9,89 +10,61 @@ use App\Enums\RelationType;
 use App\Enums\ReligionType;
 use App\Family;
 use App\Http\Requests\FamilyStoreValidate;
-use App\PersonalDetail;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class FamilyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @param $page
-     * @return Response
-     */
-    public function index1($page)
+
+    public function __construct()
     {
-        if (!view()->exists('add.' . $page)) return redirect()->back();  // Error if view file not exists
-        $options = [
-//            'marital_status' => MaritalStatusType::toSelectArray(),
-            'blood_group' => BloodGroupType::toSelectArray(),
-//            'religion' => ReligionType::toSelectArray(),
-            'relation' => RelationType::toSelectArray(),
-            'document' => DocumentType::toSelectArray(),
-        ];
-        return view('add.' . $page, compact('options', 'army', 'family'));
+        $this->middleware('newArmy')->only(['index']);
+        $this->middleware('permission:army-add')->only(['index']);
+        $this->middleware('permission:army-add|army-edit')->only(['create', 'store']);
+        $this->middleware('permission:army-edit')->only(['edit', 'update']);
+        $this->middleware('permission:army-delete')->only('destroy');
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return Response
+     * @param Army $army
+     * @return Factory|View
      */
-    public function index()
+    public function index(Army $army)
     {
-        $options = [
-            'marital_status' => MaritalStatusType::toSelectArray(),
-            'blood_group' => BloodGroupType::toSelectArray(),
-            'religion' => ReligionType::toSelectArray(),
-            'relation' => RelationType::toSelectArray(),
-            'document' => DocumentType::toSelectArray(),
-        ];
-        session(['army' => 'f850b1d6-2d12-4c2d-ab00-5f6ca4126e39']); //new
-//        session(['army' => '3c5ef973-cb76-4bd1-8765-9ac8f4d30322']);
-//        session(['army' => 'cbfb7df0-41a6-42db-90bd-7589e78dcd6e']); //first
-        $army = PersonalDetail::find(session('army'));
-        $family = (object)[
-            'father' => $army->family()->whereRelation(RelationType::Father)->get(),
-            'mother' => $army->family()->whereRelation(RelationType::Mother)->get(),
-            'children' => $army->family()->whereRelation(RelationType::Children)->get(),
-            'wife' => $army->family()->whereRelation(RelationType::Wife)->get(),
-        ];
-        return view('family-details.view', compact('options', 'army', 'family'));
+        return view('families.index', compact('army'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param Army $army
      * @return Response
      */
-    public function create()
+    public function create(Army $army)
     {
         $options = [
-            'marital_status' => MaritalStatusType::toSelectArray(),
             'blood_group' => BloodGroupType::toSelectArray(),
-            'religion' => ReligionType::toSelectArray(),
             'relation' => RelationType::toSelectArray(),
         ];
-        $family = PersonalDetail::find(session('army'))->family;
-        return view('family-details.create', compact('options', 'family'));
+        return view('families.create', compact('options', 'army'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param FamilyStoreValidate $request
+     * @param Army $army
      * @return void
      */
-    public function store(FamilyStoreValidate $request)
+    public function store(FamilyStoreValidate $request, Army $army)
     {
-        $army = PersonalDetail::find(session('army'));
         $data = $request->except(['dom', 'pan_card', 'certificate']);
         if (RelationType::Wife === $request->get('relation')) $data = $request->all();
         if (RelationType::Children === $request->get('relation')) $data = $request->except(['dom', 'pan_card']);
-        $army->family()->save(new Family($data));
-        if (request()->has('redirect')) return redirect(request()->redirect);
+        $army->families()->save(new Family($data));
         return redirect()->back();
     }
 
@@ -101,42 +74,54 @@ class FamilyController extends Controller
      * @param Family $family
      * @return Response
      */
-    public function show(Family $family)
+    public function show(Army $army, Family $family)
     {
-        //
+        return view('families.show', compact('army', 'family'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
+     * @param Army $army
      * @param Family $family
-     * @return Response
+     * @return void
      */
-    public function edit(Family $family)
+    public function edit(Army $army, Family $family)
     {
-        //
+        return view('families.edit', compact('army', 'family'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param FamilyStoreValidate $request
+     * @param Army $army
      * @param Family $family
-     * @return Response
+     * @return void
      */
-    public function update(Request $request, Family $family)
+    public function update(FamilyStoreValidate $request, Army $army, Family $family)
     {
-        //
+        $family->fill($request->all());
+        $family->save();
+        if (request()->has('redirect')) {
+            return redirect(request()->get('redirect'))->with('flash_message', 'Family details successfully updated.');
+        }
+        return redirect()->back()->with('flash_message', 'Family details successfully updated.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param Army $army
      * @param Family $family
      * @return Response
+     * @throws \Exception
      */
-    public function destroy(Family $family)
+    public function destroy(Army $army, Family $family)
     {
-        //
+        $family->delete();
+        return redirect()->route('families.index')
+            ->with('flash_message',
+                'User successfully deleted.');
     }
 }

@@ -2,57 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Army;
 use App\Http\Requests\InsuranceStoreValidate;
 use App\Insurance;
-use App\PersonalDetail;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class InsuranceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
+     * InsuranceController constructor.
      */
-    public function create()
+    public function __construct()
     {
-        //
+        $this->middleware('permission:army-add|army-edit')->only(['store', 'edit', 'update']);
+        $this->middleware('permission:army-delete')->only('destroy');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param InsuranceStoreValidate $request
+     * @param Army $army
      * @return Response
      */
-    public function store(InsuranceStoreValidate $request)
+    public function store(InsuranceStoreValidate $request, Army $army)
     {
-        $army = PersonalDetail::find(session('army'));
-        $army->insurance()->save(new Insurance($request->all()));
+        $army->insurances()->save(new Insurance($request->all()));
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Insurance $insurance
-     * @return Response
-     */
-    public function show(Insurance $insurance)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -83,8 +63,10 @@ class InsuranceController extends Controller
      * @param Insurance $insurance
      * @return Response
      */
-    public function destroy(Insurance $insurance)
+    public function destroy(Army $army, Insurance $insurance)
     {
-        //
+        $insurance->delete();
+        return redirect()->back()
+            ->with('flash_message', 'Insurance / Policy successfully deleted.');
     }
 }

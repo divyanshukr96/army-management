@@ -14,7 +14,7 @@ class CreateFamiliesTable extends Migration
     {
         Schema::create('families', function (Blueprint $table) {
             $table->uuid('id')->unique();
-            $table->uuid('personal_detail_id');
+            $table->uuid('army_id');
 
             $table->string('name');
             $table->string('mobile')->nullable();

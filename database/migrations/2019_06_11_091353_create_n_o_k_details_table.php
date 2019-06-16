@@ -14,8 +14,8 @@ class CreateNOKDetailsTable extends Migration
     {
         Schema::create('n_o_k_details', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('army_id');
 
-            $table->uuid('personal_detail_id');
             $table->string('name');
             $table->string('relation')->nullable();
             $table->string('mobile')->nullable();

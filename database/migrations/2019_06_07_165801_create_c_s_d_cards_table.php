@@ -13,8 +13,8 @@ class CreateCSDCardsTable extends Migration
     public function up()
     {
         Schema::create('c_s_d_cards', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->uuid('personal_detail_id');
+            $table->uuid('id')->unique();
+            $table->uuid('army_id');
 
             $table->string('grocery')->nullable(); // Grocery Card no
             $table->string('liquor')->nullable(); // Liquor Card no

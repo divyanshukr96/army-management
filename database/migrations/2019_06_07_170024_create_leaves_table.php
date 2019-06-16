@@ -14,7 +14,7 @@ class CreateLeavesTable extends Migration
     {
         Schema::create('leaves', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('personal_detail_id');
+            $table->uuid('army_id');
 
             $table->date('from');
             $table->date('to')->nullable();

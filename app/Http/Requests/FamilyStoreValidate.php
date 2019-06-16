@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Enums\BloodGroupType;
 use App\Enums\RelationType;
 use App\Rules\PhoneNumber;
+use App\Rules\Relation;
 use BenSampo\Enum\Rules\EnumValue;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -34,7 +35,7 @@ class FamilyStoreValidate extends FormRequest
             'occupation' => 'required|string',
             'mobile' => ['required', new PhoneNumber],
             'blood_group' => ['required', new EnumValue(BloodGroupType::class)],
-            'relation' => ['required', new EnumValue(RelationType::class)],
+            'relation' => ['required', new EnumValue(RelationType::class), new Relation($this)],
 
             'dob' => 'nullable|required_if:relation,' . RelationType::Children . '|date|before_or_equal:today',
             'dom' => 'nullable|required_if:relation,' . RelationType::Wife . '|date',

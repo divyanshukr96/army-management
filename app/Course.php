@@ -2,10 +2,14 @@
 
 namespace App;
 
+use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Course extends Model
+class Course extends Model implements Auditable
 {
+    use UsesUuid, \OwenIt\Auditing\Auditable;
+
     protected $fillable = ['name', 'grade', 'date', 'loc'];
 
 

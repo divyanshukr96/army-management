@@ -27,8 +27,8 @@ class LeaveStoreValidate extends FormRequest
     public function rules()
     {
         return [
-            'from' => 'required|date|after_or_equal:today|unique:leaves,from,NULL,id,to,' . $this->to . ',personal_detail_id,' . session('army'),
-            'to' => ['required', 'date', 'after:from', 'unique:leaves,to,NULL,id,from,' . $this->from . ',personal_detail_id,' . session('army'), new NoOfLeave($this)],
+            'from' => 'required|date|after_or_equal:today|unique:leaves,from,NULL,id,to,' . $this->to . ',army_id,' . $this->army->id,
+            'to' => ['required', 'date', 'after:from', 'unique:leaves,to,NULL,id,from,' . $this->from . ',army_id,' . $this->army->id, new NoOfLeave($this)],
             'type' => ['required', new EnumValue(LeaveType::class)],
         ];
     }

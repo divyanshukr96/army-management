@@ -14,7 +14,7 @@ class CreateInsurancesTable extends Migration
     {
         Schema::create('insurances', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('personal_detail_id');
+            $table->uuid('army_id');
 
             $table->string('policy_no');
             $table->string('policy_name')->nullable();

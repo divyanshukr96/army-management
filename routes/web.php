@@ -19,49 +19,36 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', function () {
-    return view('admin');
-})->name('home');
 
-Route::resource('users', 'UserController');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('users', 'UserController');
+    Route::resource('roles', 'RoleController');
+    Route::resource('permissions', 'PermissionController');
 
+    Route::group(['prefix' => 'armies'], function () {
+        Route::resource('pending', 'PendingController');
+    });
 
+    Route::resource('armies', 'ArmyController');
 
-//Route::prefix('army')->group(function () {
-//    Route::get('add-family', 'FamilyController@index')->name('family.create');
-//    Route::post('add-family', 'FamilyController@store')->name('family.store');
-//    Route::get('add-family-edit/{fami}', 'FamilyController@index')->name('family.edit');
-//    Route::post('add-document', 'DocumentController@store')->name('document.store');
-//    Route::post('add-card', 'CSDCardController@store')->name('card.store');
-//    Route::post('add-insurance', 'InsuranceController@store')->name('insurance.store');
-//    Route::post('add-account', 'AccountController@store')->name('account.store');
-//    Route::post('add-course', 'CourseController@store')->name('course.store');
-//    Route::post('add-punishment', 'PunishmentController@store')->name('punishment.store');
-//    Route::post('add-sarpanch', 'SarpanchController@store')->name('sarpanch.store');
-//});
+    Route::group(['prefix' => 'army/{army}'], function () {
+        Route::resource('families', 'FamilyController');
+        Route::resource('sarpanch', 'SarpanchController')->except(['index', 'create', 'show']);
+        Route::resource('documents', 'DocumentController')->only(['index', 'store', 'destroy']);
+        Route::resource('account', 'AccountController')->only(['store', 'edit', 'update', 'destroy']);
+        Route::resource('card', 'CSDCardController')->except(['index', 'create', 'show']);
+        Route::resource('insurance', 'InsuranceController')->only(['store', 'destroy']);
 
-Route::prefix('army/new')->group(function () {
-    Route::get('add-family', 'FamilyController@index')->name('family.create');
+        Route::resource('address', 'AddressController')->only(['edit', 'update']);
 
-    Route::get('{army}/family', 'NewArmyAddController@family')->name('add.family');
-    Route::get('{army}/family/create', 'NewArmyAddController@familyCreate')->name('add.family.create');
-    Route::get('{army}/document', 'NewArmyAddController@document')->name('add.document');
-    Route::get('{army}/professional', 'NewArmyAddController@professional')->name('add.professional');
-    Route::get('{army}/professional/course', 'NewArmyAddController@professionalCourse')->name('add.professional.course');
-    Route::get('{army}/professional/punishment', 'NewArmyAddController@professionalPunishment')->name('add.professional.punishment');
+        Route::resource('leaves', 'LeaveController')->only(['create', 'store', 'destroy']);
+        Route::resource('courses', 'CourseController')->except('index', 'show');
+        Route::resource('awards', 'AwardController')->only(['store', 'destroy']);
+        Route::resource('punishments', 'PunishmentController')->except(['index', 'show']); //check this if updates
 
-    Route::get('add-family', 'FamilyController@index')->name('family.create');
-    Route::post('add-family', 'FamilyController@store')->name('family.store');
-    Route::get('add-family-edit/{fami}', 'FamilyController@index')->name('family.edit');
-    Route::post('add-document', 'DocumentController@store')->name('document.store');
-    Route::post('add-card', 'CSDCardController@store')->name('card.store');
-    Route::post('add-insurance', 'InsuranceController@store')->name('insurance.store');
-    Route::post('add-account', 'AccountController@store')->name('account.store');
-    Route::post('add-course', 'CourseController@store')->name('course.store');
-    Route::post('add-punishment', 'PunishmentController@store')->name('punishment.store');
-    Route::post('add-sarpanch', 'SarpanchController@store')->name('sarpanch.store');
-    Route::post('add-award', 'AwardController@store')->name('award.store');
-    Route::post('add-leave', 'LeaveController@store')->name('leave.store');
+        Route::resource('professional', 'ProfessionalController')->only(['index', 'store']);
+    });
+
+    Route::resource('punishments', 'PunishmentController')->only(['index', 'show']); //check this if updates
+    Route::resource('leaves', 'LeaveController')->only(['index', 'show']);
 });
-
-Route::resource('army', 'PersonalDetailController');

@@ -34,7 +34,7 @@ class NoOfLeave implements Rule
     public function passes($attribute, $value)
     {
         $days = (Carbon::parse($this->request->get('from'))->diffInDays(Carbon::parse($this->request->get('to'))));
-        $data = Leave::where('personal_detail_id', session('army'))->where('type', $this->request->type)->sum('days');
+        $data = Leave::where('army_id', session('army'))->where('type', $this->request->type)->sum('days');
         switch ($this->request->type) {
             case LeaveType::AL:
                 $this->leave = $this->annualLeave - $data;

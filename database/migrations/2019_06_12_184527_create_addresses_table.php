@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -14,8 +13,8 @@ class CreateAddressesTable extends Migration
     public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->uuid('personal_detail_id');
+            $table->uuid('id')->primary();
+            $table->uuid('army_id');
 
             $table->string('state');
             $table->string('district')->nullable();

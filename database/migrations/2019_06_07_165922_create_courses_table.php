@@ -13,8 +13,8 @@ class CreateCoursesTable extends Migration
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->uuid('personal_detail_id');
+            $table->uuid('id')->unique();
+            $table->uuid('army_id');
 
             $table->string('name');
             $table->string('grade')->nullable();

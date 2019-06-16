@@ -14,7 +14,7 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->uuid('id')->unique();
-            $table->uuid('personal_detail_id');
+            $table->uuid('army_id');
             $table->string('document_no');
             $table->string('type'); //document type e.g. Aadhaar card, Pan Card, Driving Licence, Passport
             $table->string('image')->nullable();

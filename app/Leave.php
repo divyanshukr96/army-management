@@ -6,13 +6,16 @@ use App\Enums\LeaveType;
 use BenSampo\Enum\Traits\CastsEnums;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use OwenIt\Auditing\Contracts\Auditable;
 
 /**
  * @method static where(string $string, \Illuminate\Session\SessionManager|\Illuminate\Session\Store $session)
+ * @method static whereDate(string $string, \Carbon\CarbonInterface|static $today)
  */
-class Leave extends Model
+class Leave extends Model implements Auditable
 {
-    use CastsEnums;
+    use CastsEnums, SoftDeletes, \OwenIt\Auditing\Auditable;
 
     protected $casualLeave = 15;
     protected $annualLeave = 60;
@@ -23,6 +26,13 @@ class Leave extends Model
         'type' => LeaveType::class
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function army()
+    {
+        return $this->belongsTo(Army::class);
+    }
 
     /**
      * @param $value
@@ -74,6 +84,15 @@ class Leave extends Model
     public function setNoOfDaysLeave()
     {
         $this->attributes['days'] = (Carbon::parse($this->from)->diffInDays(Carbon::parse($this->to)));
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getRemainingAttribute()
+    {
+        return (Carbon::today()->diffInDays(Carbon::parse($this->to)));
     }
 
 

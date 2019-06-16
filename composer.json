@@ -16,6 +16,8 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.8.0",
+        "owen-it/laravel-auditing": "^9.2",
+        "rachidlaasri/laravel-installer": "^4.0",
         "spatie/laravel-permission": "^2.37"
     },
     "require-dev": {

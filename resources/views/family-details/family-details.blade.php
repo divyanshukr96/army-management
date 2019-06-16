@@ -96,7 +96,7 @@
                     </div>
                 </div>
             @endif
-            <a href="{{route('family.edit', $fa->id)}}" class="edit position-absolute" title="edit">
+            <a href="{{route('families.edit',[$army->id, $fa->id])}}" class="edit position-absolute" title="edit">
                 <i class="fas fa-edit"></i>
             </a>
         </div>

@@ -14,7 +14,7 @@ class CreatePunishmentsTable extends Migration
     {
         Schema::create('punishments', function (Blueprint $table) {
             $table->uuid('id')->unique();
-            $table->uuid('personal_detail_id');
+            $table->uuid('army_id');
 
             $table->string('place')->nullable();
             $table->date('offence_date')->nullable();

@@ -28,7 +28,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary" href="{{ route('army.create') }}">{{ __('Add New Army') }}</a>
+                    <a class="nav-link btn btn-outline-primary" href="{{ route('armies.create') }}">{{ __('Add New Army') }}</a>
                 </li>
                 @guest
                     <li class="nav-item">

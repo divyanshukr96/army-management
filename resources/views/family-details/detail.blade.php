@@ -8,9 +8,9 @@
         </div>
     </div>
     <div class="col-md-6 form-group row">
-        <label for="name" class="col-5 col-sm-4 col-form-label">Name</label>
+        <label for="email" class="col-5 col-sm-4 col-form-label">Email</label>
         <div class="col-7 col-sm-8">
-            <input type="text" id="name" readonly
+            <input type="text" id="email" readonly
                    class="form-control-plaintext focus-none word-wrap"
                    value="{{$army->email}}" title="{{$army->email}}">
         </div>
@@ -26,7 +26,7 @@
         <label for="dob" class="col-5 col-sm-4 col-form-label">Date of Birth</label>
         <div class="col-7 col-sm-8">
             <input type="text" id="dob" readonly class="form-control-plaintext focus-none"
-                   value="{{$army->dob}}">
+                   value="{{$army->dob}} ({{$army->age}})">
         </div>
     </div>
     <div class="col-md-6 form-group row">
@@ -78,6 +78,13 @@
         <div class="col-7 col-sm-8">
             <input type="text" id="education" readonly class="form-control-plaintext focus-none"
                    value="{{ $army->education }}">
+        </div>
+    </div>
+    <div class="col-md-6 form-group row">
+        <label for="education" class="col-5 col-sm-4 col-form-label">Nearest Railway Station</label>
+        <div class="col-7 col-sm-8">
+            <input type="text" id="education" readonly class="form-control-plaintext focus-none"
+                   value="{{ $army->nrs }}">
         </div>
     </div>
 </div>

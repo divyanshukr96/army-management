@@ -4,13 +4,17 @@ namespace App;
 
 use App\Traits\UsesUuid;
 use Hash;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 //use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use OwenIt\Auditing\Contracts\Auditable;
+use Spatie\Permission\Traits\HasRoles;
+use Str;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Auditable
 {
-    use UsesUuid, Notifiable;
+    use UsesUuid, Notifiable, HasRoles, \OwenIt\Auditing\Auditable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -39,6 +43,14 @@ class User extends Authenticatable
     }
 
     /**
+     * @param $value
+     */
+    public function getNameAttribute($value)
+    {
+        return Str::upper($value);
+    }
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array
@@ -46,4 +58,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function activities()
+    {
+        return $this->hasMany(Audit::class);
+    }
+
 }

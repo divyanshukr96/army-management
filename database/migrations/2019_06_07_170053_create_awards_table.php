@@ -14,7 +14,7 @@ class CreateAwardsTable extends Migration
     {
         Schema::create('awards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('personal_detail_id');
+            $table->uuid('army_id');
 
             $table->string('title');
 
