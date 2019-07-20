@@ -10,4 +10,5 @@ final class LeaveType extends Enum implements LocalizedEnum
     const CL = 'Casual Leave';
     const AL = 'Annual Leave';
     const SL = 'Sick Leave';
+	//const EL = 'Earned leave'
 }

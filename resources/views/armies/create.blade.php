@@ -14,7 +14,7 @@
             <div class="card-body pb-0 pt-3">
                 <div class="form-row">
                     <div class="col-md-3 mb-2">
-                        {!! Form::label('regd_no', 'Registration No.') !!}
+                        {!! Form::label('regd_no', 'Army No.') !!}
                         {!! Form::text('regd_no',null,[
                         'class' => 'form-control ' . ($errors->has('regd_no') ? 'is-invalid' : ''),
                         'placeholder' => 'Enter registration number',

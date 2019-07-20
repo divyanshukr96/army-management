@@ -84,7 +84,7 @@
                     Welcome to {{ config('app.name') }}
                 </div>
                 <h2>
-                    We're Airborne, we don't fights. We finish them.
+                    We're Soldier, we don't fights. We finish them.
                 </h2>
 
 

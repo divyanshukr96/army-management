@@ -43,7 +43,7 @@
                         </div>
                         <div class="col-12 pt-2">
                             <span class="pr-3 font-weight-bold">Offence :</span>
-                            {{$punish->offence}} {{$punish->offence}}
+                            {{$punish->offence}}
                         </div>
                         <div class="col-12 pt-2 ">
                             <span class="pr-3 font-weight-bold">Remark :</span> {{$punish->remark}}

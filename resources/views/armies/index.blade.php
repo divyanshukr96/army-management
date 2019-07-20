@@ -5,9 +5,9 @@
 @section('content')
 
     <div class="col-lg-10 offset-lg-1">
-        <h3><i class="fa fa-users" style="font-size: large"></i> Army List
+        <h3><i class="fa fa-users" style="font-size: large"></i> Enrolled Person
 
-            <a href="{{ route('armies.create') }}" class="btn btn-success float-right ml-2">Add New Army</a>
+            <a href="{{ route('armies.create') }}" class="btn btn-success float-right ml-2">Add New Person</a>
 
             {{ Form::open(['class' => 'form-inline float-right', 'method' => 'get']) }}
             {{ Form::search('query', null, ['class' => 'form-control mr-sm-1', 'placeholder' => 'Search']) }}

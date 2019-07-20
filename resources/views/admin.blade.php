@@ -79,26 +79,28 @@
                     </tbody>
                 </table>
             </div>
-            <h4>New Armies Added</h4>
+            <h4>New Person Added</h4>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
+                        <th>S.No</th>
+						 <th>Rank</th>
+                        <th>Name</th>
+                        <th>Email ID</th>
+                        <th>Personal No.</th>
+                       <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($armies->data as $army)
                         <tr onclick="window.location = '{{route('armies.show', $army->id)}}'">
                             <td>{{ $loop->iteration }}</td>
+							 <td>{{ $army->rank }}</td>
                             <td>{{ $army->name }}</td>
                             <td>{{ $army->email }}</td>
                             <td>{{ $army->regd_no }}</td>
-                            <td>{{ $army->rank }}</td>
+                           
                             <td>{{ $army->registered ? 'Registered' : 'Pending' }}</td>
                         </tr>
                     @endforeach
@@ -107,44 +109,7 @@
                 </table>
             </div>
         </div>
-
-        <div class="col-12 col-md-6">
-            <h4>Activities</h4>
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Model</th>
-                        <th>Data Changed</th>
-                        <th>Action</th>
-                        <th>Date & Time</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @if(count($activities) > 0)
-                        @foreach($activities as $activity)
-                            {{--                        <tr onclick="window.location = '{{route('armies.show', $army->id)}}'">--}}
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td class="px-2">{{ $activity->auditable_type }}</td>
-                                <td class="text-concat">
-                                    {{ json_encode($activity->new_values) }}
-                                </td>
-                                <td>{{ $activity->event }}</td>
-                                <td>{{ $activity->created_at->format('F d, Y h:iA') }}</td>
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <th scope="row" colspan="6" class="text-center py-2"> No activity available</th>
-                        </tr>
-                    @endif
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </div>
+
 
 @endsection

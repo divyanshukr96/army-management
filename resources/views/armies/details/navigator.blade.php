@@ -1,4 +1,4 @@
-<h3 class="font-weight-bold">{{$army->name}} ({{$army->rank}})</h3>
+<h3 class="font-weight-bold">{{$army->rank}} {{$army->name}} </h3>
 <div class="card my-2 font-weight-bold">
     <div class="card-body py-1 form-group-mb-0">
         <div class="float-right">
