@@ -25,9 +25,15 @@
             </div>
 
             <div class="form-group mb-2">
-                {{ Form::label('date') }}
-                {{ Form::date('date', date('Y-m-d', strtotime($course->date)), array('class' => 'form-control '.($errors->has('date') ? 'is-invalid' : ''),)) }}
-                <div class="invalid-feedback">{{ $errors->first('date') }}</div>
+                {{ Form::label('from', 'Start Date') }}
+                {{ Form::date('from', $course->from, array('class' => 'form-control '.($errors->has('from') ? 'is-invalid' : ''),)) }}
+                <div class="invalid-feedback">{{ $errors->first('from') }}</div>
+            </div>
+
+            <div class="form-group mb-2">
+                {{ Form::label('to') }}
+                {{ Form::date('to', $course->to, array('class' => 'form-control '.($errors->has('to') ? 'is-invalid' : ''),)) }}
+                <div class="invalid-feedback">{{ $errors->first('to') }}</div>
             </div>
 
             <div class="form-group mb-2">

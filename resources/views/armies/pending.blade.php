@@ -6,8 +6,9 @@
 
     <div class="col-lg-10 offset-lg-1">
         <h3><i class="fa fa-users" style="font-size: large"></i> Pending Registration List
-
-            <a href="{{ route('armies.create') }}" class="btn btn-success float-right">Add New Army</a>
+            @hasanypermission("army-add")
+            <a href="{{ route('armies.create') }}" class="btn btn-success float-right">Add New Person</a>
+            @endhasanypermission
         </h3>
         <hr>
         <div class="table-responsive">
@@ -39,13 +40,17 @@
                             <td>{{ $army->rank }}</td>
                             <td>{{ $army->created_at->format('F d, Y h:ia') }}</td>
                             <td>
+                                @hasanypermission("army-add")
                                 <a href="{{ route('families.index', $army->id) }}"
                                    class="btn btn-primary btn-sm float-left mr-1">Proceed</a>
+                                @endhasanypermission
                                 {{--                                <a href="{{ route('armies.edit', $army->id) }}"--}}
                                 {{--                                   class="btn btn-info btn-sm float-left mr-1">Edit</a>--}}
+                                @hasanypermission("army-delete")
                                 {!! Form::open(['method' => 'DELETE', 'route' => ['armies.destroy', $army->id] ]) !!}
                                 {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                                 {!! Form::close() !!}
+                                @endhasanypermission
                             </td>
                         </tr>
                     @endforeach

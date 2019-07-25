@@ -6,6 +6,7 @@ use App\Army;
 use App\Professional;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 
 class ProfessionalController extends Controller
 {
@@ -13,6 +14,7 @@ class ProfessionalController extends Controller
     public function __construct()
     {
         $this->middleware('newArmy')->only(['index', 'store']);
+        $this->middleware('permission:army-add')->only(['index', 'store']);
     }
 
     /**
@@ -40,7 +42,9 @@ class ProfessionalController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
+     * @param Army $army
      * @return Response
+     * @throws ValidationException
      */
     public function store(Request $request, Army $army)
     {

@@ -17,8 +17,11 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'role:super-admin|user']);
-//        $this->middleware();
+        $this->middleware(['auth']);
+        $this->middleware('role_or_permission:super-admin|user-view')->only('index');
+        $this->middleware('role_or_permission:super-admin|user-add')->except(['delete', 'update']);
+        $this->middleware('role_or_permission:super-admin|user-edit')->except(['create', 'store', 'delete']);
+        $this->middleware('role_or_permission:super-admin|user-delete')->only(['index', 'delete']);
     }
 
     /**
@@ -107,6 +110,7 @@ class UserController extends Controller
      * @param Request $request
      * @param int $id
      * @return Response
+     * @throws ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -118,15 +122,28 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'nullable|min:6|confirmed'
         ]);
-        $input = $request->only(['name', 'email']); //Retreive the name, email and password fields
-        $roles = $request['roles']; //Retreive all roles
+        $input = $request->only(['name', 'email']); //Retrieve the name, email and password fields
+        $roles = $request['roles']; //Retrieve all roles
         if ($request->get('password')) $user->fill($request->only('password'));
         $user->fill($input)->save();
 
         if (isset($roles)) {
+            $authUser = auth()->user();
+            if (!$authUser->hasRole('super-admin')) {
+                if (in_array(Role::findByName('super-admin')->id, $roles)) {
+                    throw ValidationException::withMessages([
+                        'role' => ["You can't assign super-admin role to any user"],
+                    ]);
+                }
+            } elseif ($authUser->id == $id && !in_array(Role::findByName('super-admin')->id, $roles)) {
+                throw ValidationException::withMessages([
+                    'role' => ["You can't remove super-admin role from self"],
+                ]);
+            }
+
             $user->roles()->sync($roles);  //If one or more role is selected associate user to roles
         } else {
-            $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
+            $user->roles()->detach(); //If no role is selected remove existing role associated to a user
         }
         return redirect()->route('users.index')
             ->with('flash_message',

@@ -32,12 +32,21 @@
                 </div>
 
                 <div class="form-group mb-2">
-                    {!! Form::label('date', 'Date') !!}
-                    {!! Form::date('date', null,[
-                    'class' => 'form-control ' . ($errors->has('date') ? 'is-invalid' : ''),
+                    {!! Form::label('from', 'Start Date') !!}
+                    {!! Form::date('from', null,[
+                    'class' => 'form-control ' . ($errors->has('from') ? 'is-invalid' : ''),
                     'required',
                     ]) !!}
-                    <div class="invalid-feedback">{{ $errors->first('date') }}</div>
+                    <div class="invalid-feedback">{{ $errors->first('from') }}</div>
+                </div>
+
+                <div class="form-group mb-2">
+                    {!! Form::label('to', 'End Date') !!}
+                    {!! Form::date('to', null,[
+                    'class' => 'form-control ' . ($errors->has('to') ? 'is-invalid' : ''),
+                    'required',
+                    ]) !!}
+                    <div class="invalid-feedback">{{ $errors->first('to') }}</div>
                 </div>
 
                 <div class="form-group mb-2">

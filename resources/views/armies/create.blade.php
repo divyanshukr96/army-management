@@ -50,6 +50,15 @@
                         ]) !!}
                         <div class="invalid-feedback">{{ $errors->first('doe') }}</div>
                     </div>
+                    <div class="col-md-3 mb-2 ">
+                        {!! Form::label('company', 'Company Name') !!}
+                        {!! Form::text('company',null,[
+                       'class' => 'form-control ' . ($errors->has('company') ? 'is-invalid' : ''),
+                       'placeholder' => 'Enter company name',
+                       'required'
+                       ]) !!}
+                        <div class="invalid-feedback">{{ $errors->first('company') }}</div>
+                    </div>
                 </div>
             </div>
         </div>

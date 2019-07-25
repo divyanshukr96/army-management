@@ -14,18 +14,24 @@
                         <div class="col-12 col-sm-8 pt-2">
                             <span class="pr-3">Card No. </span>: {{$doc->document_no}}</div>
                         <div class="col-12 col-sm-4 pt-1 text-truncate">
-                            <a href="{{ asset("image/{$doc->image}") }}">View Image</a>
-{{--                            <a href="{{ '' }}" class="btn btn-sm btn-info mx-2">Edit</a>--}}
+                            <a href="{{ asset("image/{$doc->image}") }}" class="pr-2">View</a>
+                            <a href="{{ asset("image/{$doc->image}") }}" class="btn btn-sm btn-warning d-inline"
+                               download="{{$doc->image}}">Download</a>
 
-                            {{ Form::open(['method' => 'DELETE', 'route' => ['documents.destroy', $army->id, $doc->id], 'class' => 'd-inline']) }}
-                            {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
-                            {{ Form::close() }}
+                            {{--                            <a href="{{ '' }}" class="btn btn-sm btn-info mx-2">Edit</a>--}}
+
+                            @can('army-delete')
+                                {{ Form::open(['method' => 'DELETE', 'route' => ['documents.destroy', $army->id, $doc->id], 'class' => 'd-inline']) }}
+                                {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
+                                {{ Form::close() }}
+                            @endcan
                         </div>
                     </div>
                 @endforeach
             </div>
             <hr style="margin: 1.1rem -1.2rem .5rem; border-top-width: 2px">
         @endif
+                @hasanypermission("army-edit|army-add")
         {{ Form::open(['route' => ['documents.store', $army->id], 'novalidate', 'files' => true]) }}
         <div class="form-row ">
             <div class="col-md-3 mb-2">
@@ -62,5 +68,6 @@
             </div>
         </div>
         {{ Form::close() }}
+        @endhasanypermission
     </div>
 </div>

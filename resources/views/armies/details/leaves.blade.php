@@ -10,8 +10,10 @@
     {{--    </div>--}}
 
     <div class="text-right">
-        <a href="{{ route('leaves.create', [$army->id, 'redirect' => url()->full()]) }}" class="btn btn-info">Add New
-            Leave</a>
+        @can('leave-add')
+            <a href="{{ route('leaves.create', [$army->id, 'redirect' => url()->full()]) }}" class="btn btn-info">
+                Add New Leave</a>
+        @endcan
     </div>
     <div class="card my-2">
         <div class="card-header py-2">
@@ -26,22 +28,30 @@
                             <td>From</td>
                             <td>To</td>
                             <td>Days</td>
+                            <td></td>
                         </tr>
                         @foreach($leavesGroup as $group => $leaves)
                             <tr>
-                                <td colspan="4" class="font-weight-bold">{{$group}}</td>
+                                <td colspan="5" class="font-weight-bold">{{$group}}</td>
                             </tr>
                             @foreach($leaves as $leave)
                                 <tr>
                                     <td>{{$loop->iteration}}.</td>
-                                    <td>{{$leave->from}}</td>
-                                    <td>{{$leave->to}}</td>
+                                    <td>{{!$leave->from ?: date('d-m-Y', strtotime($leave->from))}}</td>
+                                    <td>{{!$leave->to ?: date('d-m-Y', strtotime($leave->to))}}</td>
                                     <td>{{$leave->days}}</td>
+                                    @can('leave-edit')
+                                        <td>
+                                            <a href="{{ route('leaves.edit',[$army->id, $leave->id, 'redirect' => url()->full()]) }}"
+                                               class="btn btn-sm btn-info mx-1">Edit</a>
+                                        </td>
+                                    @endcan
                                 </tr>
                                 @if($loop->last)
                                     <tr class="font-weight-bold">
                                         <td colspan="3" class="text-center">Total {{$group}}</td>
                                         <td>{{$army->leaves()->where('type',$group)->sum('days')}}</td>
+                                        <td></td>
                                     </tr>
                                 @endif
                             @endforeach
@@ -49,6 +59,7 @@
                         <tr class="font-weight-bold">
                             <td colspan="3" class="text-center">Total Leave</td>
                             <td>{{$army->leaves()->sum('days')}}</td>
+                            <td></td>
                         </tr>
                     </table>
                 </div>

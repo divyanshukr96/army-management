@@ -33,11 +33,16 @@
                         <td>{{ $user->created_at->format('F d, Y h:ia') }}</td>
                         <td>{{  $user->roles()->pluck('name')->implode(' ') }}</td>
                         <td>
-                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm float-left mr-1">Edit</a>
+                            @can('user-edit')
+                                <a href="{{ route('users.edit', $user->id) }}"
+                                   class="btn btn-info btn-sm float-left mr-1">Edit</a>
+                            @endcan
 
-                            {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id] ]) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                            {!! Form::close() !!}
+                            @can('user-delete')
+                                {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id] ]) !!}
+                                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                                {!! Form::close() !!}
+                            @endcan
 
                         </td>
                     </tr>
@@ -46,8 +51,9 @@
 
             </table>
         </div>
-
-        <a href="{{ route('users.create') }}" class="btn btn-success">Add User</a>
+        @can('user-add')
+            <a href="{{ route('users.create') }}" class="btn btn-success">Add User</a>
+        @endcan
 
     </div>
 

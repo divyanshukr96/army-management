@@ -28,7 +28,7 @@ class DocumentStoreValidate extends FormRequest
         return [
             'document_no' => 'required|string|max:16',
             'image' => 'required|image|max:2100',
-            'type' => ['required', new EnumValue(DocumentType::class), 'unique:documents,type,NULL,id,army_id,' . session('army')],
+            'type' => ['required', new EnumValue(DocumentType::class), 'unique:documents,type,NULL,id,army_id,' . $this->army->id],
         ];
     }
 

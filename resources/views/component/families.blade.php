@@ -22,11 +22,15 @@
                     <td>
                         <a href="{{ route('families.show',[$army->id, $family->id, 'redirect' => url()->full()]) }}"
                            class="btn btn-outline-primary btn-sm float-left mr-1">View</a>
-                        <a href="{{ route('families.edit',[$army->id, $family->id, 'redirect' => url()->full()]) }}"
-                           class="btn btn-info btn-sm float-left mr-1">Edit</a>
+                        @can('army-edit')
+                            <a href="{{ route('families.edit',[$army->id, $family->id, 'redirect' => url()->full()]) }}"
+                               class="btn btn-info btn-sm float-left mr-1">Edit</a>
+                        @endcan
+                        @can('army-delete')
                         {!! Form::open(['method' => 'DELETE', 'route' => ['families.destroy', $army->id, $family->id] ]) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                         {!! Form::close() !!}
+                        @endcan
                     </td>
                 </tr>
             @endforeach

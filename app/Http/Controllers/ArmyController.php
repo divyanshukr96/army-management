@@ -10,7 +10,6 @@ use App\Enums\MaritalStatusType;
 use App\Enums\ReligionType;
 use App\Http\Requests\ArmyStoreValidate;
 use App\NOKDetails;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class ArmyController extends Controller
@@ -18,6 +17,7 @@ class ArmyController extends Controller
 
     public function __construct()
     {
+        $this->middleware('permission:army-view|army-edit|army-delete|army-add')->only(['index','show']);
         $this->middleware('permission:army-edit')->only(['edit', 'update']);
         $this->middleware('permission:army-add')->only(['create', 'store']);
         $this->middleware('permission:army-delete')->only('destroy');
@@ -68,14 +68,14 @@ class ArmyController extends Controller
      */
     public function store(ArmyStoreValidate $request)
     {
-        $army = Army::create($request->all());
+        $army = Army::create($request->validated());
         session(['army' => $army->id]);
         $army->nok()->save(new NOKDetails([
             'name' => $request->input('nok_name'),
             'relation' => $request->input('nok_relation'),
             'mobile' => $request->input('nok_mobile'),
         ]));
-        $army->address()->save(new Address($request->all()));
+        $army->address()->save(new Address($request->validated()));
         return redirect()->route('families.index', $army->id);
     }
 
@@ -115,7 +115,7 @@ class ArmyController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param ArmyStoreValidate $request
      * @param Army $army
      * @return Response
      */

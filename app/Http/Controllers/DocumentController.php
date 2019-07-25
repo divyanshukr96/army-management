@@ -15,7 +15,7 @@ class DocumentController extends Controller
     public function __construct()
     {
         $this->middleware('newArmy')->only(['index']);
-        $this->middleware('permission:army-add|army-edit')->only(['store', 'edit', 'update']);
+        $this->middleware('permission:army-add|army-edit')->only(['index', 'store', 'edit', 'update']);
         $this->middleware('permission:army-delete')->only('destroy');
     }
 

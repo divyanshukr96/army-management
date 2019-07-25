@@ -1,9 +1,19 @@
 <component name="ProjectDictionaryState">
   <dictionary name="DIVYANSHU">
     <words>
+      <w>elsepermission</w>
+      <w>endhasallpermissions</w>
+      <w>endhasanypermission</w>
+      <w>endhaspermission</w>
+      <w>endpermission</w>
       <w>endrole</w>
+      <w>endunlesspermission</w>
       <w>fillable</w>
+      <w>hasallpermissions</w>
+      <w>hasanypermission</w>
       <w>hasanyrole</w>
+      <w>haspermission</w>
+      <w>unlesspermission</w>
     </words>
   </dictionary>
 </component>

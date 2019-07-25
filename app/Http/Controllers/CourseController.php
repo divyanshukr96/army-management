@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Army;
 use App\Course;
 use App\Http\Requests\CourseStoreValidate;
-use Illuminate\Http\Request;
+use Exception;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
 
 class CourseController extends Controller
 {
@@ -24,7 +25,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::whereDate('to', '>=', Carbon::today()->toDateString())->paginate(15);
+        return view('courses.index', compact('courses'));
     }
 
     /**
@@ -47,7 +49,7 @@ class CourseController extends Controller
      */
     public function store(CourseStoreValidate $request, Army $army)
     {
-        $army->courses()->save(new Course($request->all()));
+        $army->courses()->save(new Course($request->validated()));
         if (request()->has('redirect')) return redirect(request()->redirect);
         return redirect()->back();
     }
@@ -66,6 +68,7 @@ class CourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param Army $army
      * @param Course $course
      * @return Response
      */
@@ -84,7 +87,7 @@ class CourseController extends Controller
      */
     public function update(CourseStoreValidate $request, Army $army, Course $course)
     {
-        $course->fill($request->all());
+        $course->fill($request->validated());
         $course->save();
         if (request()->has('redirect')) {
             return redirect(request()->get('redirect'))->with('flash_message', 'Course detail successfully updated.');
@@ -98,7 +101,7 @@ class CourseController extends Controller
      * @param Army $army
      * @param Course $course
      * @return Response
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(Army $army, Course $course)
     {

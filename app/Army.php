@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Enums\BloodGroupType;
+use App\Enums\CompanyName;
 use App\Enums\MaritalStatusType;
 use App\Enums\ReligionType;
 use App\Traits\EnumValue;
@@ -21,6 +22,9 @@ use Str;
  * @method static findOrFail($id)
  * @method static where(string $string, bool $true)
  * @method static latest()
+ * @property mixed doe
+ * @property mixed dob
+ * @property mixed id
  */
 class Army extends Model implements Auditable
 {
@@ -28,15 +32,15 @@ class Army extends Model implements Auditable
 
     protected $fillable = ['name', 'email', 'mobile', 'dob', 'blood_group', 'religion',
         'caste', 'marital_status', 'mother_tongue', 'medical', 'education', 'nrs',
-        'regd_no', 'id_card_no', 'rank', 'doe', 'image'
+        'regd_no', 'id_card_no', 'rank', 'doe', 'image', 'company'
     ];
 
     protected $enumCasts = [
         'marital_status' => MaritalStatusType::class,
         'blood_group' => BloodGroupType::class,
+//        'company' => CompanyName::class,
         'religion' => ReligionType::class
     ];
-
 
 
     /**
@@ -163,10 +167,18 @@ class Army extends Model implements Auditable
     }
 
     /**
-     * @param $value
      * @return false|string
      */
-    public function getAgeAttribute($value)
+    public function getDosAttribute()
+    {
+        $months = Carbon::parse($this->doe)->diffInMonths(Carbon::today());
+        return $months > 11 ? intval($months / 12) . ' Years ' . (!$months % 12 ?: $months % 12 . ' Months') : $months . ' Months';
+    }
+
+    /**
+     * @return false|string
+     */
+    public function getAgeAttribute()
     {
         return (Carbon::parse($this->dob)->diffInYears(Carbon::today())) . ' Years';
     }

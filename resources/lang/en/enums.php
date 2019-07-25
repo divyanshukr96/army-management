@@ -25,7 +25,8 @@ return [
     ],
 
     Leave::class => [
-        Leave::AL => 'Annual Leave',
+//        Leave::AL => 'Annual Leave',
+        Leave::EL => 'Earned Leave',
         Leave::CL => 'Casual Leave',
         Leave::SL => 'Sick Leave',
     ],

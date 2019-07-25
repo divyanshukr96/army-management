@@ -25,14 +25,17 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'army-delete', 'guard_name' => 'web'],
             ['name' => 'army-edit', 'guard_name' => 'web'],
             ['name' => 'army-add', 'guard_name' => 'web'],
+            ['name' => 'army-view', 'guard_name' => 'web'],
 
             ['name' => 'leave-delete', 'guard_name' => 'web'],
             ['name' => 'leave-edit', 'guard_name' => 'web'],
             ['name' => 'leave-add', 'guard_name' => 'web'],
+            ['name' => 'leave-view', 'guard_name' => 'web'],
 
             ['name' => 'user-delete', 'guard_name' => 'web'],
             ['name' => 'user-edit', 'guard_name' => 'web'],
             ['name' => 'user-add', 'guard_name' => 'web'],
+            ['name' => 'user-view', 'guard_name' => 'web'],
         );
 
         foreach ($permissions as $permission) {

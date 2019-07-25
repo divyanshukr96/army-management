@@ -17,7 +17,9 @@
             @else
                 <div class="font-weight-bold text-center">No any Awards received yet.</div>
             @endif
-           @include('forms.new.award')
+            @hasanypermission("army-edit|army-add")
+                @include('forms.new.award')
+            @endhasanypermission
         </div>
     </div>
 

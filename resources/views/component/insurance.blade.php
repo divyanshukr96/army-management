@@ -5,11 +5,13 @@
     <div class="card-body pb-0 pt-2">
         @if(count($army->insurances) > 0)
             @foreach($army->insurances as $insurance)
-                <div class="text-right float-right">
-                    {{ Form::open(['method' => 'DELETE', 'route' => ['insurance.destroy', $army->id, $insurance->id], 'class' => 'd-inline']) }}
-                    {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
-                    {{ Form::close() }}
-                </div>
+                @can('army-edit')
+                    <div class="text-right float-right">
+                        {{ Form::open(['method' => 'DELETE', 'route' => ['insurance.destroy', $army->id, $insurance->id], 'class' => 'd-inline']) }}
+                        {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
+                        {{ Form::close() }}
+                    </div>
+                @endcan
                 <div class="row mb-1">
                     <div class="col-12 col-sm-4 col-md-2 pt-2">Policy Number</div>
                     <div class="col-12 col-sm-8 col-md-4 pt-2 font-weight-bold">{{$insurance->policy_no}}</div>
@@ -23,6 +25,10 @@
                     <hr class="my-1">
                 @endif
             @endforeach
+        @endif
+
+        @hasanypermission("army-edit|army-add")
+        @if(count($army->insurances) > 0)
             <hr style="margin: 1.1rem -1.2rem .5rem; border-top-width: 2px">
         @endif
         {{ Form::open(['route' => ['insurance.store', $army->id], 'novalidate']) }}
@@ -50,5 +56,6 @@
             </div>
         </div>
         {{ Form::close() }}
+        @endhasanypermission
     </div>
 </div>

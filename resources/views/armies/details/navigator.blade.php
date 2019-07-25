@@ -42,6 +42,22 @@
                            value="{{$army->doe}}">
                 </div>
             </div>
+            <div class="col-md-6 form-group row">
+                <label for="company" class="col-5 col-sm-4 col-form-label">Company Name</label>
+                <div class="col-7 col-sm-8">
+                    <input type="text" id="company" readonly
+                           class="form-control-plaintext focus-none"
+                           value="{{$army->company}}">
+                </div>
+            </div>
+            <div class="col-md-6 form-group row">
+                <label for="dos" class="col-5 col-sm-4 col-form-label">Date of Service</label>
+                <div class="col-7 col-sm-8">
+                    <input type="text" id="dos" readonly
+                           class="form-control-plaintext focus-none"
+                           value="{{$army->dos}}">
+                </div>
+            </div>
         </div>
     </div>
 </div>

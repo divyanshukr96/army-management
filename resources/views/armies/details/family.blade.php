@@ -16,9 +16,11 @@
 
     <div class="card my-2 border-bottom">
         <div class="card-header py-2" id="familyHeading">
-            <a class="btn btn-primary btn-sm float-right"
-               href="{{ route('families.create',[$army->id, 'redirect'=> url()->full()]) }}"
-               role="button">Add family details</a>
+            @can('army-edit')
+                <a class="btn btn-primary btn-sm float-right"
+                   href="{{ route('families.create',[$army->id, 'redirect'=> url()->full()]) }}"
+                   role="button">Add family details</a>
+            @endcan
             <h5 class="mb-0 font-weight-bold">Family Details</h5>
         </div>
         <div class="card-body p-0 form-group-mb-0">

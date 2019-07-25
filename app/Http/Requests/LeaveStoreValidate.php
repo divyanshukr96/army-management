@@ -7,6 +7,10 @@ use App\Rules\NoOfLeave;
 use BenSampo\Enum\Rules\EnumValue;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @property mixed from
+ * @property mixed army
+ */
 class LeaveStoreValidate extends FormRequest
 {
     /**

@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('address', 'AddressController')->only(['edit', 'update']);
 
-        Route::resource('leaves', 'LeaveController')->only(['create', 'store', 'destroy']);
+        Route::resource('leaves', 'LeaveController')->only(['create', 'store', 'destroy', 'edit', 'update']);
         Route::resource('courses', 'CourseController')->except('index', 'show');
         Route::resource('awards', 'AwardController')->only(['store', 'destroy']);
         Route::resource('punishments', 'PunishmentController')->except(['index', 'show']); //check this if updates
@@ -56,4 +56,5 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('punishments', 'PunishmentController')->only(['index', 'show']); //check this if updates
     Route::resource('leaves', 'LeaveController')->only(['index', 'show']);
+    Route::resource('courses', 'CourseController')->only('index');
 });

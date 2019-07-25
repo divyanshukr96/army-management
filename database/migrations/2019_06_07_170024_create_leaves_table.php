@@ -13,7 +13,7 @@ class CreateLeavesTable extends Migration
     public function up()
     {
         Schema::create('leaves', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->uuid('id')->unique();
             $table->uuid('army_id');
 
             $table->date('from');

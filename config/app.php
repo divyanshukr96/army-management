@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
+        \App\Providers\BladeServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         /*
          * Application Service Providers...

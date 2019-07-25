@@ -1,8 +1,10 @@
 <div class="card mb-2">
     <div class="card-header py-2">
+        @hasanypermission("army-edit|army-add")
         <a class="btn btn-primary btn-sm float-right"
            href="{{route('punishments.create',[$army->id,'redirect'=> url()->full()])}}"
            role="button">Add Punishment</a>
+        @endhasanypermission
         <h4 class="mb-0 font-weight-bold">Punishment Awarded</h4>
     </div>
     <div class="card-body pb-0 pt-2">
@@ -12,13 +14,16 @@
                     <div class="font-weight-bold border-bottom pb-1">
                         {{ucwords($punish->order_date)}}
                         <span class="float-right">
-                                    <a href="{{ route('punishments.edit',[$army->id, $punish->id, 'redirect' => url()->full()]) }}"
-                                       class="btn btn-sm btn-info mx-1">Edit</a>
-
-                                    {{ Form::open(['method' => 'DELETE', 'route' => ['punishments.destroy', $army->id, $punish->id], 'class' => 'd-inline']) }}
-                            {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
-                            {{ Form::close() }}
-                                </span>
+                            @hasanypermission("army-edit")
+                                <a href="{{ route('punishments.edit',[$army->id, $punish->id, 'redirect' => url()->full()]) }}"
+                                   class="btn btn-sm btn-info mx-1">Edit</a>
+                            @endhasanypermission
+                            @hasanypermission("army-delete")
+                                {{ Form::open(['method' => 'DELETE', 'route' => ['punishments.destroy', $army->id, $punish->id], 'class' => 'd-inline']) }}
+                                {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
+                                {{ Form::close() }}
+                            @endhasanypermission
+                        </span>
                     </div>
                     <div class="row mb-2">
                         <div class="col-12 col-sm-4 pt-2">

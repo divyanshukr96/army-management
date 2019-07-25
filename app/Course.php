@@ -3,34 +3,34 @@
 namespace App;
 
 use App\Traits\UsesUuid;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use OwenIt\Auditing\Contracts\Auditable;
 
+/**
+ * @property mixed to
+ */
 class Course extends Model implements Auditable
 {
     use UsesUuid, \OwenIt\Auditing\Auditable;
 
-    protected $fillable = ['name', 'grade', 'date', 'loc'];
-
+    protected $fillable = ['name', 'grade', 'from', 'to', 'loc'];
 
     /**
-     * @param $value
+     * @return BelongsTo
      */
-    public function setDateAttribute($value)
+    public function army()
     {
-        $this->attributes['date'] = date('Y-m-d', strtotime($value));
-        // Date of Birth
+        return $this->belongsTo(Army::class);
     }
 
     /**
-     * @param $value
-     * @return false|string
+     * @return int
      */
-    public function getDateAttribute($value)
+    public function getRemainingAttribute()
     {
-        return date('d-m-Y', strtotime($value));
-        // Date of Birth
+        return (Carbon::today()->diffInDays(Carbon::parse($this->to)));
     }
-
 
 }

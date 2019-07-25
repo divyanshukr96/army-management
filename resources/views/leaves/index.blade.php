@@ -20,9 +20,11 @@
                     <th scope="col">From</th>
                     <th scope="col">To Date</th>
                     <th scope="col">No. of Days</th>
-{{--                    <th scope="col">Remaining</th>--}}
+                    {{--                    <th scope="col">Remaining</th>--}}
                     <th scope="col">Cause</th>
-                    <th></th>
+                    @can('leave-edit')
+                        <th></th>
+                    @endcan
                 </tr>
                 </thead>
 
@@ -38,12 +40,16 @@
                             <td>{{ $leave->from }}</td>
                             <td>{{ $leave->to }}</td>
                             <th scope="col" title="Remaining : {{$leave->remaining}} Days">{{ $leave->days }}</th>
-{{--                            <th scope="col">{{ $leave->days }}</th>--}}
+                            {{--                            <th scope="col">{{ $leave->days }}</th>--}}
                             <td>{{ $leave->type->value }}</td>
-                            <td>
-                                <a href="{{ route('punishments.show', $leave->id) }}"
-                                   class="btn btn-outline-secondary btn-sm float-left mr-1">view</a>
-                            </td>
+                            @can('leave-edit')
+                                <td>
+                                    {{--                                    <a href="{{ route('punishments.show', $leave->id) }}"--}}
+                                    {{--                                       class="btn btn-outline-secondary btn-sm float-left mr-1">view</a>--}}
+                                    <a href="{{ route('leaves.edit',[$leave->army->id, $leave->id, 'redirect' => url()->full()]) }}"
+                                       class="btn btn-sm btn-info mx-1">Edit</a>
+                                </td>
+                            @endcan
                         </tr>
                     @endforeach
                 @else

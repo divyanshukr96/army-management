@@ -9,17 +9,27 @@
                     <div class="font-weight-bold border-bottom pb-1">
                         {{ucwords($course->name)}}
                         <span class="float-right">
-                                    <a href="{{ route('courses.edit',[$army->id, $course->id, 'redirect' => url()->full()]) }}"
-                                       class="btn btn-sm btn-info mx-1">Edit</a>
-
-                                    {{ Form::open(['method' => 'DELETE', 'route' => ['courses.destroy', $army->id, $course->id], 'class' => 'd-inline']) }}
-                            {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
-                            {{ Form::close() }}
-                                </span>
+                            @can('army-edit')
+                                <a href="{{ route('courses.edit',[$army->id, $course->id, 'redirect' => url()->full()]) }}"
+                                   class="btn btn-sm btn-info mx-1">Edit</a>
+                            @endcan
+                            @can('army-delete')
+                                {{ Form::open(['method' => 'DELETE', 'route' => ['courses.destroy', $army->id, $course->id], 'class' => 'd-inline']) }}
+                                {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
+                                {{ Form::close() }}
+                            @endcan
+                        </span>
                     </div>
                     <div class="row mb-2">
                         <div class="col-12 col-sm-4 pt-2">
-                            <span class="pr-3">Date :</span> {{$course->date}}</div>
+                            <span class="pr-3">Date :</span>
+                            @if($course->from)
+                                <span title="start date">{{date('d-m-Y', strtotime($course->from))}}</span>
+                            @endif
+                            @if($course->to)
+                                to <span title="end date">{{date('d-m-Y', strtotime($course->to))}}</span>
+                            @endif
+                        </div>
                         <div class="col-12 col-sm-3 pt-2 text-truncate">
                             <span class="pr-3">Grade :</span> {{$course->grade}}
                         </div>
@@ -28,10 +38,12 @@
                 @endforeach
             </div>
         @endif
+        @hasanypermission("army-edit|army-add")
         <div class="text-right pt-1 mb-2">
             <a class="btn btn-primary btn-sm"
                href="{{route('courses.create',[$army->id,'redirect'=> url()->full()]) }}"
                role="button">Add Course Details</a>
         </div>
+        @endhasanypermission
     </div>
 </div>

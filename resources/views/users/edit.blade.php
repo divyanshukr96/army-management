@@ -34,8 +34,8 @@
             @foreach ($roles as $role)
                 {{ Form::checkbox('roles[]',  $role->id, $user->roles ) }}
                 {{ Form::label($role->name, ucfirst($role->name)) }}<br>
-
             @endforeach
+                <div class="text-danger">{{ $errors->first('role') }}</div>
         </div>
 
         <div class="form-group">

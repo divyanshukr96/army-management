@@ -3,7 +3,9 @@
 
     <div class="card my-2">
         <div class="card-header py-2">
-            <a href="{{ route('armies.edit', $army->id) }}" class="btn btn-info btn-sm float-right px-3">Edit</a>
+            @can('army-edit')
+                <a href="{{ route('armies.edit', $army->id) }}" class="btn btn-info btn-sm float-right px-3">Edit</a>
+            @endcan
             <h4 class="mb-0 font-weight-bold">Personal Details</h4>
         </div>
         <div class="card-body py-2 form-group-mb-0">
@@ -102,8 +104,10 @@
 
     <div class="card my-2">
         <div class="card-body py-2 form-group-mb-0">
-            <a href="{{ route('address.edit', [$army->id, $army->address->id]) }}"
-               class="btn btn-info btn-sm float-right px-3">Edit</a>
+            @can('army-edit')
+                <a href="{{ route('address.edit', [$army->id, $army->address->id]) }}"
+                   class="btn btn-info btn-sm float-right px-3">Edit</a>
+            @endcan
             <h5 class="font-weight-bold">Address</h5>
             <hr class="my-1">
             <div class="row form-group-mx-px-0 mb-2">
@@ -145,10 +149,12 @@
 
     <div class="card mb-2">
         <div class="card-header py-2">
-            @if($army->sarpanch)
-                <a href="{{ route('sarpanch.edit', [$army->id, $army->sarpanch->id, 'redirect' => url()->full()]) }}"
-                   class="btn btn-info btn-sm float-right px-3">Edit</a>
-            @endif
+            @can('army-edit')
+                @if($army->sarpanch)
+                    <a href="{{ route('sarpanch.edit', [$army->id, $army->sarpanch->id, 'redirect' => url()->full()]) }}"
+                       class="btn btn-info btn-sm float-right px-3">Edit</a>
+                @endif
+            @endcan
             <h5 class="mb-0 font-weight-bold">Sarpanch Details</h5>
         </div>
         <div class="card-body pb-0 pt-1">

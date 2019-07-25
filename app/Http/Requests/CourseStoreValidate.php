@@ -26,8 +26,17 @@ class CourseStoreValidate extends FormRequest
         return [
             'name' => 'required|string',
             'grade' => 'required|string',
-            'date' => 'required|date|before_or_equal:today',
+            'from' => 'required|date',  // |before_or_equal:today
+            'to' => 'required|date|after:from',
             'loc' => 'required|string'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'from' => 'course start date',
+            'to' => 'course end date',
         ];
     }
 }

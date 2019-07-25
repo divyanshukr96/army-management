@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
 
             $table->string('name');
             $table->string('grade')->nullable();
-            $table->date('date')->nullable();
+//            $table->date('date')->nullable();  //updates to from and to dates in other migration
             $table->string('loc')->nullable();
 
             $table->softDeletes();

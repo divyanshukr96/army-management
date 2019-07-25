@@ -8,8 +8,7 @@ use App\Enums\ReligionType;
 use App\Rules\PhoneNumber;
 use BenSampo\Enum\Rules\EnumValue;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
+use Str;
 
 class ArmyStoreValidate extends FormRequest
 {
@@ -50,6 +49,7 @@ class ArmyStoreValidate extends FormRequest
             'id_card_no' => 'required|string',
             'rank' => 'required|string',
             'doe' => 'required|date',
+            'company' => 'required|string',  //company name field
 
             'nok_name' => "required|regex:/^[.\'\-a-zA-Z ]+$/|max:150",
             'nok_relation' => "required|string|max:150",

@@ -7,6 +7,8 @@
             <div class="col-12 col-sm-8 pt-2 font-weight-bold">{{$army->email}}</div>
             <div class="col-12 col-sm-4 pt-2">Mobile No<span class="float-right">:</span></div>
             <div class="col-12 col-sm-8 pt-2 font-weight-bold">{{$army->mobile}}</div>
+            <div class="col-12 col-sm-4 pt-2">Company Name<span class="float-right">:</span></div>
+            <div class="col-12 col-sm-8 pt-2 font-weight-bold">{{$army->company}}</div>
         </div>
     </div>
 </div>

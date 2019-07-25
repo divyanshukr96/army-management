@@ -71,12 +71,16 @@
                 @endswitch
                 <tr>
                     <td colspan="2" class="text-right">
+                        @hasanypermission("army-delete")
                         {!! Form::open(['method' => 'DELETE', 'route' => ['families.destroy', $army->id, $family->id] ]) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger float-right btn-sm']) !!}
                         {!! Form::close() !!}
+                        @endhasanypermission
 
+                        @hasanypermission("army-edit|army-add")
                         <a href="{{ route('families.edit', [$army->id, $family->id, 'redirect' => url()->full()]) }}"
                            class="btn btn-info btn-sm mr-1">Edit</a>
+                        @endhasanypermission
                     </td>
                 </tr>
                 </tbody>

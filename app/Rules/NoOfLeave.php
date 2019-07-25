@@ -11,7 +11,8 @@ class NoOfLeave implements Rule
 {
     private $request;
     private $casualLeave = 15;
-    private $annualLeave = 60;
+//    private $annualLeave = 60;
+    private $earnedLeave = 60;
     private $leave;
 
     /**
@@ -33,19 +34,24 @@ class NoOfLeave implements Rule
      */
     public function passes($attribute, $value)
     {
+        $army_id = $this->request->army->id;
         $days = (Carbon::parse($this->request->get('from'))->diffInDays(Carbon::parse($this->request->get('to'))));
-        $data = Leave::where('army_id', session('army'))->where('type', $this->request->type)->sum('days');
+        $data = Leave::where('army_id', $army_id)
+            ->whereYear('created_at', '=', date('Y'))
+            ->where('type', $this->request->type)->sum('days');
         switch ($this->request->type) {
-            case LeaveType::AL:
-                $this->leave = $this->annualLeave - $data;
-                return ($data + $days) <= $this->annualLeave;
+            case LeaveType::EL:
+                $this->leave = $this->earnedLeave - $data;
+                return ($data + $days) <= $this->earnedLeave;
+//            case LeaveType::AL:
+//                $this->leave = $this->annualLeave - $data;
+//                return ($data + $days) <= $this->annualLeave;
             case LeaveType::CL:
                 $this->leave = $this->casualLeave - $data;
                 return ($data + $days) <= $this->casualLeave;
             default:
                 return true;
         }
-        return false;
     }
 
     /**

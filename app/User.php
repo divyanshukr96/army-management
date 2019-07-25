@@ -15,6 +15,7 @@ use Str;
 /**
  * @method static count()
  * @method static create(array $array)
+ * @method static findOrFail(int $id)
  */
 class User extends Authenticatable implements Auditable
 {

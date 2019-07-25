@@ -12,11 +12,15 @@
                 <div class="col-12 col-sm-4 pt-2">IFSC Code <span class="float-right">:</span></div>
                 <div class="col-12 col-sm-8 pt-2 font-weight-bold">{{$army->account->ifsc}}</div>
                 <div class="col-12 text-right">
-                    <a href="{{ route('account.edit',[$army->id, $army->account->id, 'redirect' => url()->full()]) }}" class="btn btn-sm btn-info mx-2">Edit</a>
-
+                    @can('army-edit')
+                        <a href="{{ route('account.edit',[$army->id, $army->account->id, 'redirect' => url()->full()]) }}"
+                           class="btn btn-sm btn-info mx-2">Edit</a>
+                    @endcan
+                    @can('army-delete')
                     {{ Form::open(['method' => 'DELETE', 'route' => ['account.destroy', $army->id, $army->account->id], 'class' => 'd-inline']) }}
                     {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
                     {{ Form::close() }}
+                    @endcan
                 </div>
             </div>
         @else

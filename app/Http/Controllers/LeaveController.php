@@ -15,9 +15,9 @@ class LeaveController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:leave-add|army-add|army-edit')->only(['store']);
+        $this->middleware('permission:leave-add|army-add|army-edit')->only(['create', 'store']);
 
-//        $this->middleware('permission:army-add|army-edit')->only(['edit', 'update']);
+        $this->middleware('permission:army-add|army-edit|leave-edit')->only(['edit', 'update']);
 
         $this->middleware('permission:army-delete|leave-delete')->only('destroy');
     }
@@ -29,7 +29,7 @@ class LeaveController extends Controller
      */
     public function index()
     {
-        $leaves = Leave::whereDate('to', '>=', Carbon::today()->toDateString() )->paginate(15);
+        $leaves = Leave::whereDate('to', '>=', Carbon::today()->toDateString())->paginate(15);
         return view('leaves.index', compact('leaves'));
     }
 
@@ -48,7 +48,7 @@ class LeaveController extends Controller
      * Store a newly created resource in storage.
      *
      * @param LeaveStoreValidate $request
-     * @param PersonalDetail $army
+     * @param Army $army
      * @return void
      */
     public function store(LeaveStoreValidate $request, Army $army)
@@ -63,10 +63,10 @@ class LeaveController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Leave $leave
-     * @return Response
+     * @param Leave $leaf
+     * @return void
      */
-    public function show(Leave $leave)
+    public function show(Leave $leaf)
     {
 
     }
@@ -74,31 +74,37 @@ class LeaveController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Leave $leave
+     * @param Army $army
+     * @param Leave $leaf
      * @return Response
      */
-    public function edit(Leave $leave)
+    public function edit(Army $army, Leave $leaf)
     {
-        //
+        return view('leaves.edit', compact('army', 'leaf'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Leave $leave
-     * @return Response
+     * @param Army $army
+     * @param Leave $leaf
+     * @return void
      */
-    public function update(Request $request, Leave $leave)
+    public function update(Request $request, Army $army, Leave $leaf)
     {
-        //
+        $leaf->update($request->all());
+        if (request()->has('redirect')) {
+            return redirect(request()->get('redirect'))->with('flash_message', 'Leave detail successfully updated.');
+        }
+        return redirect()->back()->with('flash_message', 'Leave detail successfully updated.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param $army
-     * @param Leave $leave
+     * @param Leave $leaf
      * @return Response
      * @throws Exception
      */

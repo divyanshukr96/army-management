@@ -10,15 +10,21 @@
                 <div class="col-12 col-sm-4 pt-2">Liquor Card No. <span class="float-right">:</span></div>
                 <div class="col-12 col-sm-8 pt-2 font-weight-bold">{{$army->csdCard->liquor}}</div>
                 <div class="col-12 text-right">
-                    <a href="{{ route('card.edit',[$army->id, $army->csdCard->id, 'redirect' => url()->full()]) }}" class="btn btn-sm btn-info mx-2">Edit</a>
-
-                    {{ Form::open(['method' => 'DELETE', 'route' => ['card.destroy', $army->id, $army->csdCard->id], 'class' => 'd-inline']) }}
-                    {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
-                    {{ Form::close() }}
+                    @can('army-edit')
+                        <a href="{{ route('card.edit',[$army->id, $army->csdCard->id, 'redirect' => url()->full()]) }}"
+                           class="btn btn-sm btn-info mx-2">Edit</a>
+                    @endcan
+                    @can('army-delete')
+                        {{ Form::open(['method' => 'DELETE', 'route' => ['card.destroy', $army->id, $army->csdCard->id], 'class' => 'd-inline']) }}
+                        {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-danger d-inline']) }}
+                        {{ Form::close() }}
+                    @endcan
                 </div>
             </div>
         @else
+            @hasanypermission("army-edit|army-add")
             @include('forms.new.csd')
+            @endhasanypermission
         @endif
     </div>
 </div>
