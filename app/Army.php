@@ -140,6 +140,14 @@ class Army extends Model implements Auditable
     }
 
     /**
+     * @return HasMany
+     */
+    public function duties()
+    {
+        return $this->hasMany(OtherLeave::class);
+    }
+
+    /**
      * @param $value
      * @return false|string
      */

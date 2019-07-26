@@ -84,16 +84,16 @@ class Leave extends Model implements Auditable
     {
         $this->attributes['days'] = (Carbon::parse($this->from)->diffInDays(Carbon::parse($this->to)));
     }
-//
-//
-//    /**
-//     * @return int
-//     */
-//    public function getRemainingAttribute()
-//    {
-//        return (Carbon::today()->diffInDays(Carbon::parse($this->to)));
-//    }
-//
+
+
+    /**
+     * @return int
+     */
+    public function getRemainingAttribute()
+    {
+        return (Carbon::today()->diffInDays(Carbon::parse($this->to)));
+    }
+
 //
 //    /**
 //     * @param $value

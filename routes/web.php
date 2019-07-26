@@ -36,6 +36,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('armies', 'ArmyController');
 
+    Route::resource('duties', 'OtherLeaveController', ['names' => [
+        'create' => 'duties.new'
+    ]]);
+
     Route::group(['prefix' => 'army/{army}'], function () {
         Route::resource('families', 'FamilyController');
         Route::resource('sarpanch', 'SarpanchController')->except(['index', 'create', 'show']);
@@ -52,6 +56,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('punishments', 'PunishmentController')->except(['index', 'show']); //check this if updates
 
         Route::resource('professional', 'ProfessionalController')->only(['index', 'store']);
+
+        Route::resource('duties', 'OtherLeaveController')->only(['create', 'store']);
     });
 
     Route::resource('punishments', 'PunishmentController')->only(['index', 'show']); //check this if updates

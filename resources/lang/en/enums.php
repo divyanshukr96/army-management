@@ -4,6 +4,7 @@
 use App\Enums\BloodGroupType as Blood;
 use App\Enums\DocumentType as Document;
 use App\Enums\LeaveType as Leave;
+use App\Enums\OtherLeaveType as OtherLeave;
 
 return [
     Blood::class => [
@@ -29,5 +30,10 @@ return [
         Leave::EL => 'Earned Leave',
         Leave::CL => 'Casual Leave',
         Leave::SL => 'Sick Leave',
+    ],
+
+    OtherLeave::class => [
+        OtherLeave::MH => "Military Hospital",
+        OtherLeave::T_DUTY => "Temporary Duty",
     ],
 ];

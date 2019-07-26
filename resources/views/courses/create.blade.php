@@ -6,7 +6,7 @@
 
     <div class='col-lg-4 offset-lg-4'>
 
-        <h3><i class='fa fa-user-plus' style="font-size: large"></i> Army Course Attended</h3>
+        <h3><i class='fa fa-user-plus' style="font-size: large"></i> Person Course Attended</h3>
         <hr>
         @include('armies.details')
 

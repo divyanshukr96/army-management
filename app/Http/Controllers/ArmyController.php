@@ -39,8 +39,9 @@ class ArmyController extends Controller
                     ->orWhere('mobile', 'like', '%' . $keyword . '%')
                     ->orWhere('regd_no', 'like', '%' . $keyword . '%')
                     ->orWhere('id_card_no', 'like', '%' . $keyword . '%')
+                    ->orWhere('company', 'like', '%' . $keyword . '%')
                     ->orWhere('rank', 'like', '%' . $keyword . '%');
-            })->where('registered', true)->paginate(15);
+            }, true)->where('registered', true)->paginate(15);
         }
         return view('armies.index', compact('armies'));
     }

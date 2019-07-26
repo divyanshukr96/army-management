@@ -37,8 +37,8 @@
                         <tr>
                             <th scope="row">{{ sprintf('%02d',++$s_no) }}</th>
                             <td>{{ $leave->army->name }}</td>
-                            <td>{{ $leave->from }}</td>
-                            <td>{{ $leave->to }}</td>
+                            <td>{{!$leave->from ?: date('d-m-Y', strtotime($leave->from))}}</td>
+                            <td>{{!$leave->to ?: date('d-m-Y', strtotime($leave->to))}}</td>
                             <th scope="col" title="Remaining : {{$leave->remaining}} Days">{{ $leave->days }}</th>
                             {{--                            <th scope="col">{{ $leave->days }}</th>--}}
                             <td>{{ $leave->type->value }}</td>
