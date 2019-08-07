@@ -111,6 +111,9 @@ class LeaveController extends Controller
     public function destroy($army, Leave $leaf)
     {
         $leaf->delete();
-        return redirect()->back()->with('flash_message', 'Leave detail successfully deleted.');
+        if (request()->has('redirect')) {
+            return redirect(request()->get('redirect'))->with('flash_message', 'Leave detail successfully updated.');
+        }
+        return redirect()->back()->with('flash_message', 'Leave detail successfully updated.');
     }
 }
