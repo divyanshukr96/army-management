@@ -31,7 +31,14 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df095708-9c70-44b0-97b2-26b65ef4ca10" name="Default Changelist" comment="" />
+    <list default="true" id="df095708-9c70-44b0-97b2-26b65ef4ca10" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/Tulips.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/installed" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,6 +296,7 @@
       <workItem from="1564982016700" duration="2660000" />
       <workItem from="1565096022140" duration="146000" />
       <workItem from="1565169013705" duration="8067000" />
+      <workItem from="1565196756266" duration="3096000" />
     </task>
     <servers />
   </component>
