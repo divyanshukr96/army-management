@@ -28,7 +28,7 @@ class FamilyStoreValidate extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => "required|regex:/^[.\'\-a-zA-Z ]+$/|max:150",
 //            'age' => 'required|numeric|min:1',
             'education' => 'required|string',
@@ -40,15 +40,19 @@ class FamilyStoreValidate extends FormRequest
             'dob' => 'nullable|required_if:relation,' . RelationType::Children . '|date|before_or_equal:today',
             'dom' => 'nullable|required_if:relation,' . RelationType::Wife . '|date',
             'pan_card' => 'nullable|required_if:relation,' . RelationType::Wife . '|alpha_num',
-            'certificate' => 'nullable|required_if:relation,' . RelationType::Wife . ',' . RelationType::Children . '|image|max:2000',
         ];
+        if (request()->method() == 'POST') {
+            $rules['certificate'] = 'nullable|required_if:relation,' . RelationType::Wife . ',' . RelationType::Children . '|image|max:2000';
+        }
+        return $rules;
+
     }
 
     public function messages()
     {
         return [
             'name.regex' => "The name contains ony alphabet.",
-            'age.min' => "The :attribute must be greater than or equal to :min.",
+//            'age.min' => "The :attribute must be greater than or equal to :min.",
             'dob.required_if' => "The :attribute field is required.",
             'dom.required_if' => "The :attribute field is required.",
             'pan_card.required_if' => "The :attribute field is required.",

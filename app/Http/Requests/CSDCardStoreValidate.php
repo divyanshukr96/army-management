@@ -24,8 +24,10 @@ class CSDCardStoreValidate extends FormRequest
     public function rules()
     {
         return [
-            'liquor' => 'nullable|regex:/^[0-9](?!.*--)(?!.*- -)(?!.*  )[ 0-9-]*[0-9]$/',
-            'grocery' => 'nullable|regex:/^[0-9](?!.*--)(?!.*- -)(?!.*  )[ 0-9-]*[0-9]$/',
+//            'liquor' => 'nullable|regex:/^[0-9](?!.*--)(?!.*- -)(?!.*  )[ 0-9-]*[0-9]$/',
+//            'grocery' => 'nullable|regex:/^[0-9](?!.*--)(?!.*- -)(?!.*  )[ 0-9-]*[0-9]$/',
+            'liquor' => 'nullable|alpha_num',
+            'grocery' => 'nullable|alpha_num',
         ];
     }
 
