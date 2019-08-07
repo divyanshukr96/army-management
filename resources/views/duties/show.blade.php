@@ -21,7 +21,9 @@
                     <div class="col-12 col-sm-8 pt-2 font-weight-bold">
                         {{!$duty->to ?: date('d-m-Y', strtotime($duty->to))}}</div>
                     <div class="col-12 col-sm-4 pt-2">Type<span class="float-right">:</span></div>
-                    <div class="col-12 col-sm-8 pt-2 font-weight-bold">{{$duty->type->value}}</div>
+                    <div class="col-12 col-sm-8 pt-2 font-weight-bold">
+                        @lang('message.'.strtoupper($duty->type->value))
+                    </div>
                     <div class="col-12 col-sm-4 pt-2">Location<span class="float-right">:</span></div>
                     <div class="col-12 col-sm-8 pt-2 font-weight-bold">{{$duty->loc}}</div>
                     <div class="col-12 col-sm-4 pt-2">Description<span class="float-right">:</span></div>

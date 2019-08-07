@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '| Users')
+@section('title', '| '. trans('message.'.strtoupper(request()->get('type'))))
 
 @section('content')
 
@@ -50,10 +50,12 @@
                     @endforeach
                 @else
                     <tr>
-                        <th scope="row" colspan="6" class="text-center bg-warning">
+                        <th scope="row" colspan="8" class="text-center bg-warning">
                             Data not available
                             @if($duties->currentpage() > 1)
-                                <a href="{{$duties->previousPageUrl()}}">Go to previous page</a>
+                                <a href="{{$duties->previousPageUrl()}}"> Go to previous page</a>
+                            @else
+                                <a href="{{ url()->route('home') }}"> Go to Home page</a>
                             @endif
                         </th>
                     </tr>

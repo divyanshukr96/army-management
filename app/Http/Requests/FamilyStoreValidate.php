@@ -30,7 +30,7 @@ class FamilyStoreValidate extends FormRequest
     {
         return [
             'name' => "required|regex:/^[.\'\-a-zA-Z ]+$/|max:150",
-            'age' => 'required|numeric|min:1',
+//            'age' => 'required|numeric|min:1',
             'education' => 'required|string',
             'occupation' => 'required|string',
             'mobile' => ['required', new PhoneNumber],

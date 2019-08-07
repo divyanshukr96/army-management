@@ -32,10 +32,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df095708-9c70-44b0-97b2-26b65ef4ca10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa3a483a-f92e-4bb2-b70b-da9405aac9f8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aa3a483a-f92e-4bb2-b70b-da9405aac9f8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/DocumentStoreValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/DocumentStoreValidate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Army.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Army.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Family.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Family.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FamilyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FamilyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/FamilyStoreValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/FamilyStoreValidate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/duties/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/duties/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/duties/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/duties/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/families/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/families/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/families/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/families/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/family-details/family-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/family-details/family-details.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +82,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="army-management: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="army-management@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="army-management: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="other_leaves: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -88,63 +101,6 @@
         <option value="SCSS File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>-plaintext focus-none</find>
-      <find>readonly</find>
-      <find>col-md-6</find>
-      <find>form-group</find>
-      <find>div class=&quot;invalid</find>
-      <find>exist</find>
-      <find>punish-&gt;</find>
-      <find>$punishments</find>
-      <find>$punishment</find>
-      <find>date</find>
-      <find>{{</find>
-      <find>}}</find>
-      <find>laravel</find>
-      <find>larav</find>
-      <find>app_de</find>
-      <find>environmentWizard</find>
-      <find>debug</find>
-      <find>environ</find>
-      <find>wizard</find>
-      <find>company</find>
-      <find>$annualLeave</find>
-      <find>$casualLeave</find>
-      <find>annual</find>
-      <find>role</find>
-      <find>bind</find>
-      <find>$bladeCompiler-&gt;</find>
-      <find>{$guard}</find>
-      <find>explode('|', $data);</find>
-      <find>$data</find>
-      <find>$dutiesType</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>$data</replace>
-      <replace>$fa</replace>
-      <replace>add-army-family-form</replace>
-      <replace>&quot;col-5 col-sm-4</replace>
-      <replace>col-sm-6 col-md-4</replace>
-      <replace>col-sm-6 col-lg-4</replace>
-      <replace>$table-&gt;uuid($columnNames['model_morph_key'])</replace>
-      <replace>a</replace>
-      <replace>a href=&quot;{{ route('army.show',) }}&quot;</replace>
-      <replace>&lt;a href=&quot;{{ route('army.show',) }}&quot;</replace>
-      <replace>form-group mb-2</replace>
-      <replace>span class=&quot;invalid</replace>
-      <replace>punishment-&gt;</replace>
-      <replace>$leaves</replace>
-      <replace>$leave</replace>
-      <replace>&lt;span class=&quot;font-weight-bolder&quot;&gt;{{</replace>
-      <replace>}}&lt;/span&gt;</replace>
-      <replace>permission</replace>
-      <replace>Blade::</replace>
-      <replace>is_array($data) ? $data : explode('|', trim(str_replace([&quot;'&quot;, '&quot;'], &quot;&quot;, $data)));</replace>
-      <replace>$permission</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -253,7 +209,7 @@
     <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Study/Laravel Form" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -267,19 +223,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Army Management" />
-      <recent name="E:\Army Management\storage" />
-      <recent name="E:\Army Management\resources\views\layouts" />
-      <recent name="E:\Army Management\storage\app\public" />
-      <recent name="E:\Army Management\resources\views\documents" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Army Management\resources\views\professionals" />
       <recent name="E:\Army Management\resources\views\add" />
       <recent name="E:\Army Management\resources\views\add\include" />
       <recent name="E:\Army Management\app\Traits" />
       <recent name="E:\Army Management\app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Army Management" />
+      <recent name="E:\Army Management\storage" />
+      <recent name="E:\Army Management\resources\views\layouts" />
+      <recent name="E:\Army Management\storage\app\public" />
+      <recent name="E:\Army Management\resources\views\documents" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -340,6 +296,10 @@
       <workItem from="1563927150841" duration="41688000" />
       <workItem from="1564111043177" duration="15164000" />
       <workItem from="1564419646251" duration="2981000" />
+      <workItem from="1564498062631" duration="3624000" />
+      <workItem from="1564982016700" duration="2660000" />
+      <workItem from="1565096022140" duration="146000" />
+      <workItem from="1565169013705" duration="2609000" />
     </task>
     <servers />
   </component>

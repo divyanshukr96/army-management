@@ -38,7 +38,7 @@
                 <div class="col-7 col-sm-8">
                     <input type="text" id="age" readonly
                            class="form-control-plaintext focus-none"
-                           value="{{$fa->age}} Years">
+                           value="{{$fa->age}}">
                 </div>
             </div>
             <div class="col-md-6 form-group row">

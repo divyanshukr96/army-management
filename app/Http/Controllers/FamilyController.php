@@ -10,6 +10,7 @@ use App\Enums\RelationType;
 use App\Enums\ReligionType;
 use App\Family;
 use App\Http\Requests\FamilyStoreValidate;
+use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -62,7 +63,7 @@ class FamilyController extends Controller
     public function store(FamilyStoreValidate $request, Army $army)
     {
         $data = $request->except(['dom', 'pan_card', 'certificate']);
-        if (RelationType::Wife === $request->get('relation')) $data = $request->all();
+        if (RelationType::Wife === $request->get('relation')) $data = $request->validated();
         if (RelationType::Children === $request->get('relation')) $data = $request->except(['dom', 'pan_card']);
         $army->families()->save(new Family($data));
         return redirect()->back();
@@ -71,6 +72,7 @@ class FamilyController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param Army $army
      * @param Family $family
      * @return Response
      */
@@ -101,7 +103,7 @@ class FamilyController extends Controller
      */
     public function update(FamilyStoreValidate $request, Army $army, Family $family)
     {
-        $family->fill($request->all());
+        $family->fill($request->validated());
         $family->save();
         if (request()->has('redirect')) {
             return redirect(request()->get('redirect'))->with('flash_message', 'Family details successfully updated.');
@@ -115,13 +117,15 @@ class FamilyController extends Controller
      * @param Army $army
      * @param Family $family
      * @return Response
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(Army $army, Family $family)
     {
         $family->delete();
-        return redirect()->route('families.index')
-            ->with('flash_message',
-                'User successfully deleted.');
+        if (request()->has('redirect')) {
+            return redirect(request()->get('redirect'))
+                ->with('flash_message', 'Family details successfully deleted.');
+        }
+        return redirect()->back()->with('flash_message', 'Family details successfully deleted.');
     }
 }

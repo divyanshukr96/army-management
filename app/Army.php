@@ -3,7 +3,6 @@
 namespace App;
 
 use App\Enums\BloodGroupType;
-use App\Enums\CompanyName;
 use App\Enums\MaritalStatusType;
 use App\Enums\ReligionType;
 use App\Traits\EnumValue;
@@ -11,6 +10,7 @@ use App\Traits\StoreImage;
 use App\Traits\UsesUuid;
 use BenSampo\Enum\Traits\CastsEnums;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -38,9 +38,16 @@ class Army extends Model implements Auditable
     protected $enumCasts = [
         'marital_status' => MaritalStatusType::class,
         'blood_group' => BloodGroupType::class,
-//        'company' => CompanyName::class,
         'religion' => ReligionType::class
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('orderCreate', function (Builder $builder) {
+            $builder->orderBy('doe', 'ASC');
+        });
+    }
 
 
     /**

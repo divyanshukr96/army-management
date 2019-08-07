@@ -24,7 +24,7 @@
             </div>
             <div class="card-body pb-0 pt-2">
                 <div class="form-row">
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 col-lg-4 mb-2">
                         {!! Form::label('name', null) !!}
                         {!! Form::text('name',null,[
                         'class' => 'form-control ' . ($errors->has('name') ? 'is-invalid' : ''),
@@ -34,7 +34,7 @@
                         <div class="invalid-feedback">{{ $errors->first('name') }}</div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 col-lg-4 mb-2">
                         {!! Form::label('mobile', null) !!}
                         {!! Form::text('mobile',null,[
                         'class' => 'form-control ' . ($errors->has('mobile') ? 'is-invalid' : ''),
@@ -44,7 +44,7 @@
                         <div class="invalid-feedback">{{ $errors->first('mobile') }}</div>
                     </div>
 
-                    <div class="col-md-3 mb-2 ">
+                    <div class="col-md-6 col-lg-4 mb-2">
                         {!! Form::label('dob', 'Date of Birth') !!}
                         {!! Form::date('dob', null,[
                         'class' => 'form-control ' . ($errors->has('dob') ? 'is-invalid' : ''),
@@ -53,17 +53,17 @@
                         <div class="invalid-feedback">{{ $errors->first('dob') }}</div>
                     </div>
 
-                    <div class="col-md-3 mb-2 ">
-                        {!! Form::label('age', null) !!}
-                        {!! Form::text('age', null,[
-                        'class' => 'form-control ' . ($errors->has('age') ? 'is-invalid' : ''),
-                        'placeholder' => 'Enter age in year',
-                        'required',
-                        ]) !!}
-                        <div class="invalid-feedback">{{ $errors->first('age') }}</div>
-                    </div>
+                    {{--                    <div class="col-md-3 mb-2 ">--}}
+                    {{--                        {!! Form::label('age', null) !!}--}}
+                    {{--                        {!! Form::text('age', null,[--}}
+                    {{--                        'class' => 'form-control ' . ($errors->has('age') ? 'is-invalid' : ''),--}}
+                    {{--                        'placeholder' => 'Enter age in year',--}}
+                    {{--                        'required',--}}
+                    {{--                        ]) !!}--}}
+                    {{--                        <div class="invalid-feedback">{{ $errors->first('age') }}</div>--}}
+                    {{--                    </div>--}}
 
-                    <div class="col-md-3 mb-2">
+                    <div class="col-md-6 col-lg-4 mb-2">
                         {!! Form::label('blood_group') !!}
                         {!! Form::select('blood_group', $options['blood_group'],
                         null,[
@@ -74,7 +74,7 @@
                         <div class="invalid-feedback">{{ $errors->first('blood_group') }}</div>
                     </div>
 
-                    <div class="col-md-3 mb-2">
+                    <div class="col-md-6 col-lg-4 mb-2">
                         {!! Form::label('relation', 'Family Relation') !!}
                         {!! Form::select('relation', $options['relation'],null,[
                         'class' => 'form-control ' . ($errors->has('relation') ? 'is-invalid' : ''),
@@ -84,7 +84,7 @@
                         <div class="invalid-feedback">{{ $errors->first('relation') }}</div>
                     </div>
 
-                    <div class="col-md-6 mb-2 ">
+                    <div class="col-md-6 col-lg-4 mb-2">
                         {!! Form::label('education', null) !!}
                         {!! Form::text('education',null,[
                         'class' => 'form-control ' . ($errors->has('education') ? 'is-invalid' : ''),
@@ -94,7 +94,7 @@
                         <div class="invalid-feedback">{{ $errors->first('education') }}</div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 col-lg-4 mb-2">
                         {!! Form::label('occupation', 'Profession / Occupation') !!}
                         {!! Form::text('occupation',null,[
                         'class' => 'form-control ' . ($errors->has('occupation') ? 'is-invalid' : ''),
@@ -103,8 +103,6 @@
                         ]) !!}
                         <div class="invalid-feedback">{{ $errors->first('occupation') }}</div>
                     </div>
-
-
                 </div>
             </div>
         </div>

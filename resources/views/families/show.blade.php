@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>Age</td>
-                    <td>{{ $family->age.' Years' }}</td>
+                    <td>{{ $family->age }}</td>
                 </tr>
                 <tr>
                     <td>Blood Group</td>
@@ -57,13 +57,15 @@
                     </tr>
                     <tr>
                         <td>Marriage Certificate</td>
-                        <td><a target="_blank" href="{{ asset("image/{$family->certificate}") }}">View Certificate</a></td>
+                        <td><a target="_blank" href="{{ asset("image/{$family->certificate}") }}">View Certificate</a>
+                        </td>
                     </tr>
                     @break
                     @case('Children')
                     <tr>
                         <td>Birth Certificate</td>
-                        <td><a target="_blank" href="{{ asset("image/{$family->certificate}") }}">View Certificate</a></td>
+                        <td><a target="_blank" href="{{ asset("image/{$family->certificate}") }}">View Certificate</a>
+                        </td>
                     </tr>
                     @break
                     @default
