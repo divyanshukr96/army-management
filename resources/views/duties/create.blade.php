@@ -8,7 +8,7 @@
 
     <div class='col-lg-4 offset-lg-4'>
         <h3><i class='fa fa-user-plus' style="font-size: large"></i> Add Person's <span
-                title="Military Hospital">MH</span> or <span title="Temporary Duty">T/Duty</span></h3>
+                title="Military Hospital">MH</span>/<span title="Temporary Duty">Temporary Duty</span></h3>
         <hr>
         @include('armies.details')
 

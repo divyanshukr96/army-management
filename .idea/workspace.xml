@@ -33,15 +33,8 @@
   <component name="ChangeListManager">
     <list default="true" id="df095708-9c70-44b0-97b2-26b65ef4ca10" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Army.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Army.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Family.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Family.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FamilyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FamilyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/FamilyStoreValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/FamilyStoreValidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/duties/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/duties/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/duties/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/duties/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/families/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/families/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/families/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/families/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/family-details/family-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/family-details/family-details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/RolePermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RolePermissionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/duties/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/duties/create.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -299,7 +292,7 @@
       <workItem from="1564498062631" duration="3624000" />
       <workItem from="1564982016700" duration="2660000" />
       <workItem from="1565096022140" duration="146000" />
-      <workItem from="1565169013705" duration="2609000" />
+      <workItem from="1565169013705" duration="4406000" />
     </task>
     <servers />
   </component>
