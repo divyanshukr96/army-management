@@ -36,24 +36,24 @@ class Family extends Model implements Auditable
         $this->attributes['certificate'] = $image;
     }
 
-    /**
-     * @param $value
-     * @return false|string
-     */
-    public function getDobAttribute($value)
-    {
-        return $value ? date('d-m-Y', strtotime($value)) : null;
-    }
-
-
-    /**
-     * @param $value
-     * @return false|string
-     */
-    public function getDomAttribute($value)
-    {
-        return $value ? date('d-m-Y', strtotime($value)) : null;
-    }
+//    /**
+//     * @param $value
+//     * @return false|string
+//     */
+//    public function getDobAttribute($value)
+//    {
+//        return $value ? date('d-m-Y', strtotime($value)) : null;
+//    }
+//
+//
+//    /**
+//     * @param $value
+//     * @return false|string
+//     */
+//    public function getDomAttribute($value)
+//    {
+//        return $value ? date('d-m-Y', strtotime($value)) : null;
+//    }
 
     /**
      * @return string|null

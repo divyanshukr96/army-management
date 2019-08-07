@@ -22,7 +22,7 @@
                 </tr>
                 <tr>
                     <td>Date of Birth</td>
-                    <td>{{ $family->dob }}</td>
+                    <td>{{ date('d-m-Y', strtotime($family->dob)) }}</td>
                 </tr>
                 <tr>
                     <td>Age</td>
