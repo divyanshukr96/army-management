@@ -39,7 +39,7 @@
                             <td>{{!$duty->from ?: date('d-m-Y', strtotime($duty->from))}}</td>
                             <td>{{!$duty->to ?: date('d-m-Y', strtotime($duty->to))}}</td>
                             <th scope="col" title="Remaining : {{$duty->remaining}}">{{ $duty->days }}</th>
-                            <td>{{ $duty->type->value }}</td>
+                            <td>@lang('message.'.strtoupper($duty->type->value))</td>
                             {{--                            @can('leave-edit')--}}
                             <td>
                                 <a href="{{ route('duties.edit',[$duty->id, 'redirect' => url()->full()]) }}"

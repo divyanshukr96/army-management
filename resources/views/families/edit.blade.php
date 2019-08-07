@@ -77,12 +77,12 @@
 
             @switch($family->relation->value)
                 @case('Wife')
-                <div class="form-group mb-2  col-md-4">
+                <div class="form-group mb-2">
                     {{ Form::label('pan_card') }}
                     {{ Form::text('pan_card', null, array('class' => 'form-control '.($errors->has('pan_card') ? 'is-invalid' : ''))) }}
                     <div class="invalid-feedback">{{ $errors->first('pan_card') }}</div>
                 </div>
-                <div class="form-group mb-2  col-md-4">
+                <div class="form-group mb-2">
                     {{ Form::label('dom','Date of Marriage') }}
                     {{ Form::text('dom', null, array('class' => 'form-control '.($errors->has('dom') ? 'is-invalid' : ''))) }}
                     <div class="invalid-feedback">{{ $errors->first('dom') }}</div>
@@ -94,7 +94,7 @@
             @endswitch
 
             <div class="d-flex justify-content-between mt-4">
-                <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
+                <a href="{{ request()->get('redirect')?: url()->previous() }}" class="btn btn-secondary">Back</a>
                 {{ Form::submit('Update', array('class' => 'btn btn-primary px-4')) }}
             </div>
 
