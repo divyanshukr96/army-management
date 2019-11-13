@@ -37,6 +37,10 @@
                     </div>
                 @endforeach
             </div>
+        @else
+            <div class="py-2">
+                Course Details not available.
+            </div>
         @endif
         @hasanypermission("army-edit|army-add")
         <div class="text-right pt-1 mb-2">

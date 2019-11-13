@@ -51,6 +51,14 @@ class Army extends Model implements Auditable
 
 
     /**
+     * @return HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne(User::class, 'username','regd_no');
+    }
+
+    /**
      * @return HasMany
      */
     public function families()

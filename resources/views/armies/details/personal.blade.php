@@ -166,7 +166,13 @@
                     <div class="col-12 col-sm-8 pt-2 font-weight-bold">{{$army->sarpanch->mobile}}</div>
                 </div>
             @else
-                @include('forms.new.sarpanch')
+                @can('army-edit')
+                    @include('forms.new.sarpanch')
+                @else
+                    <div class="py-2">
+                        Sarpanch Details not available.
+                    </div>
+                @endcan
                 {{--                <div class="text-right my-2">--}}
                 {{--                    <a class="btn btn-primary btn-sm" href="#" role="button">Add Sarpanch</a>--}}
                 {{--                </div>--}}

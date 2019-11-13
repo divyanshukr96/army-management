@@ -53,7 +53,7 @@ class HomeController extends Controller
         ];
         $leave = (object)[
             'today' => Leave::whereDate('created_at', Carbon::today())->count(),
-            'current' => Leave::whereDate('to', '<=', Carbon::today())->count()
+            'current' => Leave::whereDate('to', '>=', Carbon::today())->count()
         ];
         $armies = (object)[
             'data' => Army::latest()->take(10)->get(),

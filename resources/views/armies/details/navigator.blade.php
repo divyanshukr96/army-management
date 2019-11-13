@@ -3,7 +3,7 @@
     <div class="card-body py-1 form-group-mb-0">
         <div class="float-right">
             <a href="{{ asset("image/{$army->image}") }}" target="_blank">
-                <img height="100" width="85"
+                <img height="100"
                      src="{{ asset("image/{$army->image}") }}"
                      alt="">
             </a>
@@ -61,6 +61,9 @@
         </div>
     </div>
 </div>
+
+<a href="{{ route('armies.show',[$army->id, 'tab' => 'login']) }}"
+   class="btn btn-outline-secondary {{request()->tab === 'login' ? 'active' : ''}} float-right">Login Details</a>
 
 <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with a groups">
     <div class="btn-group mr-2" role="group" aria-label="First group">

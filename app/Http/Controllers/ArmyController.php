@@ -17,7 +17,7 @@ class ArmyController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:army-view|army-edit|army-delete|army-add')->only(['index','show']);
+        $this->middleware('permission:army-view|army-edit|army-delete|army-add')->only(['index']);
         $this->middleware('permission:army-edit')->only(['edit', 'update']);
         $this->middleware('permission:army-add')->only(['create', 'store']);
         $this->middleware('permission:army-delete')->only('destroy');

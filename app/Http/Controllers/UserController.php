@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\User;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
@@ -31,7 +32,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::whereNotExists(function ($query) {
+            $query->select(DB::raw(1))->from('armies')->whereRaw('armies.regd_no = users.username');
+        })->get();
+
         return view('users.index')->with('users', $users);
     }
 
@@ -100,6 +104,8 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id); //Get user with specified id
         $roles = Role::get(); //Get all roles
+
+        if ($user->army) return redirect()->back();
 
         return view('users.edit', compact('user', 'roles')); //pass user and roles data to view
     }

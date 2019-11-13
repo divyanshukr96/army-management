@@ -1,4 +1,12 @@
 @extends('layouts.app')
+
+@if(auth()->user()->army)
+@section('script')
+    <script !src="">
+        window.location.href = '{{route('armies.show', auth()->user()->army->id)}}';
+    </script>
+@endsection
+@else
 @section('content')
 
 
@@ -50,8 +58,8 @@
     {{--    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="819" height="345"--}}
     {{--            style="display: block; width: 819px; height: 345px;"></canvas>--}}
 
-    <div class="row">
-        <div class="col-12 col-md-6">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-12">
             <h4>Latest Punishment Awarded</h4>
             <div class="table-responsive mb-2">
                 <table class="table table-striped table-sm">
@@ -85,22 +93,22 @@
                     <thead>
                     <tr>
                         <th>S.No</th>
-						 <th>Rank</th>
+                        <th>Rank</th>
                         <th>Name</th>
                         <th>Email ID</th>
                         <th>Personal No.</th>
-                       <th>Status</th>
+                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($armies->data as $army)
                         <tr onclick="window.location = '{{route('armies.show', $army->id)}}'">
                             <td>{{ $loop->iteration }}</td>
-							 <td>{{ $army->rank }}</td>
+                            <td>{{ $army->rank }}</td>
                             <td>{{ $army->name }}</td>
                             <td>{{ $army->email }}</td>
                             <td>{{ $army->regd_no }}</td>
-                           
+
                             <td>{{ $army->registered ? 'Registered' : 'Pending' }}</td>
                         </tr>
                     @endforeach
@@ -113,3 +121,6 @@
 
 
 @endsection
+@endif
+
+

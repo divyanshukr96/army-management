@@ -25,16 +25,15 @@ Auth::routes(['register' => $register]);
 
 Route::get('/home', 'HomeController@home')->name('home');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
-    Route::resource('permissions', 'PermissionController');
+    Route::resource('permissions', 'PermissionController')->only('index');
 
     Route::group(['prefix' => 'armies'], function () {
         Route::resource('pending', 'PendingController');
     });
 
-    Route::resource('armies', 'ArmyController');
 
     Route::resource('duties', 'OtherLeaveController', ['names' => [
         'create' => 'duties.new'
@@ -42,6 +41,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::group(['prefix' => 'army/{army}'], function () {
         Route::resource('families', 'FamilyController');
+
+        Route::resource('user', 'ArmyUserController')->only(['store']);
+
         Route::resource('sarpanch', 'SarpanchController')->except(['index', 'create', 'show']);
         Route::resource('documents', 'DocumentController')->only(['index', 'store', 'destroy']);
         Route::resource('account', 'AccountController')->only(['store', 'edit', 'update', 'destroy']);
@@ -63,4 +65,15 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('punishments', 'PunishmentController')->only(['index', 'show']); //check this if updates
     Route::resource('leaves', 'LeaveController')->only(['index', 'show']);
     Route::resource('courses', 'CourseController')->only('index');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('armies', 'ArmyController');
+
+    Route::group(['prefix' => 'army/{army}'], function () {
+
+        Route::resource('families', 'FamilyController');
+
+        Route::resource('user', 'ArmyUserController')->only(['update']);
+    });
 });

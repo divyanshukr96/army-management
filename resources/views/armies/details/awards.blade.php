@@ -15,7 +15,7 @@
                 </div>
                 <hr style="margin: 1.1rem -1.2rem .5rem; border-top-width: 2px">
             @else
-                <div class="font-weight-bold text-center">No any Awards received yet.</div>
+                <div class="font-weight-bold text-center py-1">No any Awards received yet.</div>
             @endif
             @hasanypermission("army-edit|army-add")
                 @include('forms.new.award')

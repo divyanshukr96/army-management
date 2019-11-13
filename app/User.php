@@ -4,6 +4,7 @@ namespace App;
 
 use App\Traits\UsesUuid;
 use Hash;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 //use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -49,6 +50,7 @@ class User extends Authenticatable implements Auditable
 
     /**
      * @param $value
+     * @return string
      */
     public function getNameAttribute($value)
     {
@@ -68,6 +70,14 @@ class User extends Authenticatable implements Auditable
     public function activities()
     {
         return $this->hasMany(Audit::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function army()
+    {
+        return $this->belongsTo(Army::class, 'username', 'regd_no');
     }
 
 }

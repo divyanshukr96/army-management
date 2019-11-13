@@ -24,40 +24,46 @@
                 </div>
             </div>
         @else
-            {{ Form::open(['route' => ['account.store', $army->id], 'novalidate']) }}
-            <div class="form-row pt-1">
-                <div class="col-md-4 mb-2">
-                    {{--                    {!! Form::label('account_no', 'Bank Account No.') !!}--}}
-                    {!! Form::text('account_no',null,[
-                    'class' => 'form-control ' . ($errors->has('account_no') ? 'is-invalid' : ''),
-                    'placeholder' => 'Enter account no',
-                    'required'
-                    ]) !!}
-                    <div class="invalid-feedback">{{ $errors->first('account_no') }}</div>
+            @can('army-edit')
+                {{ Form::open(['route' => ['account.store', $army->id], 'novalidate']) }}
+                <div class="form-row pt-1">
+                    <div class="col-md-4 mb-2">
+                        {{--                    {!! Form::label('account_no', 'Bank Account No.') !!}--}}
+                        {!! Form::text('account_no',null,[
+                        'class' => 'form-control ' . ($errors->has('account_no') ? 'is-invalid' : ''),
+                        'placeholder' => 'Enter account no',
+                        'required'
+                        ]) !!}
+                        <div class="invalid-feedback">{{ $errors->first('account_no') }}</div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        {{--                    {!! Form::label('branch_name', 'Bank Branch Name') !!}--}}
+                        {!! Form::text('branch_name',null,[
+                        'class' => 'form-control ' . ($errors->has('branch_name') ? 'is-invalid' : ''),
+                        'placeholder' => 'Enter bank branch name',
+                        'required'
+                        ]) !!}
+                        <div class="invalid-feedback">{{ $errors->first('branch_name') }}</div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        {{--                    {!! Form::label('ifsc', 'Bank IFSC Code') !!}--}}
+                        {!! Form::text('ifsc',null,[
+                        'class' => 'form-control ' . ($errors->has('ifsc') ? 'is-invalid' : ''),
+                        'placeholder' => 'Enter Bank IFSC Code',
+                        'required'
+                        ]) !!}
+                        <div class="invalid-feedback">{{ $errors->first('ifsc') }}</div>
+                    </div>
+                    <div class="col mb-2 text-right">
+                        {{ Form::submit('Save', ['class' => 'btn btn-primary']) }}
+                    </div>
                 </div>
-                <div class="col-md-4 mb-2">
-                    {{--                    {!! Form::label('branch_name', 'Bank Branch Name') !!}--}}
-                    {!! Form::text('branch_name',null,[
-                    'class' => 'form-control ' . ($errors->has('branch_name') ? 'is-invalid' : ''),
-                    'placeholder' => 'Enter bank branch name',
-                    'required'
-                    ]) !!}
-                    <div class="invalid-feedback">{{ $errors->first('branch_name') }}</div>
+                {{ Form::close() }}
+            @else
+                <div class="py-2">
+                    Account Details not available.
                 </div>
-                <div class="col-md-3 mb-2">
-                    {{--                    {!! Form::label('ifsc', 'Bank IFSC Code') !!}--}}
-                    {!! Form::text('ifsc',null,[
-                    'class' => 'form-control ' . ($errors->has('ifsc') ? 'is-invalid' : ''),
-                    'placeholder' => 'Enter Bank IFSC Code',
-                    'required'
-                    ]) !!}
-                    <div class="invalid-feedback">{{ $errors->first('ifsc') }}</div>
-                </div>
-                <div class="col mb-2 text-right">
-                    {{ Form::submit('Save', ['class' => 'btn btn-primary']) }}
-                </div>
-            </div>
-            {{ Form::close() }}
+            @endcan
         @endif
 
     </div>
